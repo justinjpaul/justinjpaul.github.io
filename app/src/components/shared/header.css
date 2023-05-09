@@ -1,0 +1,61 @@
+.header {
+    height: 20vh;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.header-panel {
+    /* background-color: lightskyblue; */
+    background-color: #659db8;
+    color: gray;
+    display:flex;
+    height: 60%;
+    width: 100%;
+    size: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    margin: .5em;
+    border-radius: 25px;
+    outline: none;
+    border:0;
+    height: 50%;
+
+    min-height: 40%;
+    max-height: 75%;
+
+    font-size: 100%;
+    min-width: 20px;
+    max-width: 8vw;
+}
+
+.off-page {
+    background-color: green;
+    color: white;
+}
+
+.on-page {
+    background-color: lightgreen;
+    color: green;
+}
+
+
+
+.far, .fab {
+    /* color: #343d52; */
+    margin: .2em;
+    size: 100%;
+}
+
+.fa-github, .far{
+    color: black;
+}
+
+.fa-linkedin {
+    color: #0a66c2
+}
+
