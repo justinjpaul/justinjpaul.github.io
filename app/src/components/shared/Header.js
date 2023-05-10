@@ -5,25 +5,28 @@ export default function Header(props) {
 
     function redirect(page) {
         window.location.href = `/${page}`;
-      }
+    }
 
 
     return <div className="header">
         <div className="header-panel">
-            <button onClick={() => redirect(about)} className={(props.page === about ? "on-page": "off-page") + " button"} >About Me</button>
-            <button onClick={() => redirect(chess)} className={(props.page === chess ? "on-page": "off-page") + " button"}>Chess</button>
-            <button onClick={() => redirect(projects)} className={(props.page === projects ? "on-page": "off-page") + " button"}>Projects</button>
-            <button onClick={() => redirect(blog)} className={(props.page === blog ? "on-page": "off-page") + " button"}>Blog</button>
-            <div className="button-social">
-                <a href="mailto:justpaul@umich.edu"><i className="far fa-envelope fa-lg"></i></a>
+            <div className="button-container">
+                <button onClick={() => redirect(about)} className={(props.page === about ? "on-page" : "off-page") + " button"} >About</button>
+                <button onClick={() => redirect(chess)} className={(props.page === chess ? "on-page" : "off-page") + " button"}>Chess</button>
+                <button onClick={() => redirect(projects)} className={(props.page === projects ? "on-page" : "off-page") + " button"}>Projects</button>
+                <button onClick={() => redirect(blog)} className={(props.page === blog ? "on-page" : "off-page") + " button"}>Blog</button>
+                <div className="socials">
+                    <div className="button-social">
+                        <a href="mailto:justpaul@umich.edu" target="about:blank"><i className="far fa-envelope fa-lg"></i></a>
+                    </div>
+                    <div className="button-social">
+                        <a href="https://github.com/justinjpaul" target="about:blank"><i className="fab fa-github fa-lg"></i></a>
+                    </div>
+                    <div className="button-social">
+                        <a href="https://www.linkedin.com/in/jpaul24/" target="about:blank"><i className="fab fa-linkedin fa-lg"></i></a>
+                    </div>
+                </div>
             </div>
-            <div className="button-social">
-                <a href="https://github.com/justinjpaul"><i className="fab fa-github fa-lg"></i></a>
-            </div>
-            <div className="button-social">
-                <a href="https://www.linkedin.com/in/jpaul24/"><i className="fab fa-linkedin fa-lg"></i></a>
-            </div>
-
 
             {/* <div className="button">
                 <div>

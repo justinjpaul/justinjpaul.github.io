@@ -4,38 +4,57 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+}
 
 .header-panel {
     /* background-color: lightskyblue; */
     background-color: #659db8;
     color: gray;
-    display:flex;
+    display: flex;
     height: 60%;
     width: 100%;
     size: 100%;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
 
-.button {
+.button,
+.socials {
     margin: .5em;
     border-radius: 25px;
-    outline: none;
-    border:0;
-    height: 50%;
-
-    min-height: 40%;
-    max-height: 75%;
+    /* outline: none; */
+    border: none;
 
     font-size: 100%;
-    min-width: 20px;
-    max-width: 8vw;
+    width: calc(20% - 2em);
+    height: 30%;
+
+    cursor: pointer;
+}
+
+.socials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-container {
+    width: 75vh;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
 }
 
 .off-page {
     background-color: green;
     color: white;
+}
+
+.off-page:hover,
+.far:hover,
+.fab:hover {
+    filter: brightness(120%)
 }
 
 .on-page {
@@ -45,17 +64,21 @@
 
 
 
-.far, .fab {
+.far,
+.fab {
     /* color: #343d52; */
     margin: .2em;
     size: 100%;
 }
 
-.fa-github, .far{
-    color: black;
+.far {
+    color: white;
+}
+
+.fa-github {
+    color: #060671;
 }
 
 .fa-linkedin {
     color: #0a66c2
 }
-
