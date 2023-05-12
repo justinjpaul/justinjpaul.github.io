@@ -2,11 +2,11 @@ import { useState } from 'react';
 import Header from '../../shared/Header';
 
 
-export default function BlogPage() {
-    const page = 'blog';
+export default function AboutPage() {
+    const page = '';
 
     return <>
     <Header page={page}/>
-    <div height="90vh">blog stuff</div>
+    <div height="90%">stuff</div>
     </>
 };

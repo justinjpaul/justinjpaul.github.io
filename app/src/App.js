@@ -1,11 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import AboutPage from './components/pages/about/About';
+import AboutPage from './components/pages/about/AboutPage';
 import ChessPage from './components/pages/chess/ChessPage';
-import ProjectsPage from './components/pages/projects/Projects';
-import BlogPage from './components/pages/blog/Blog';
+import PortfolioPage from './components/pages/portfolio/PortfolioPage';
+import BlogPage from './components/pages/blog/BlogPage';
+import NotFoundPage from './components/pages/notfound/NotFoundPage'
 
 function App() {
   return (
@@ -14,8 +14,9 @@ function App() {
         <Routes>
           <Route path="/" element={<AboutPage />} />
           <Route path="chess" element={<ChessPage />} />
-          <Route path="projects" element={<ProjectsPage />} />
+          <Route path="portfolio" element={<PortfolioPage />} />
           <Route path="blog" element={<BlogPage />} />
+          <Route path="/*" element = {<NotFoundPage />} />
         </Routes>
       </Router>
     </div>
