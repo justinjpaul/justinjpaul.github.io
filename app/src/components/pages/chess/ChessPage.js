@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Header from '../../shared/Header';
 import GetData from '../../shared/GetData';
 import ChessMap from './ChessMap';
+import ChessGraph from './ChessGraph';
 
 import './chess.css'
 
@@ -43,10 +44,11 @@ export default function ChessPage() {
     const page = 'chess';
     const url = "/chess_stats.json";
     const [data, setData] = useState([]);
+    const [toggleMap, setToggleMap] = useState(false)
+    const [timeRange, setTimeRange] = useState([0, data.length - 1]);
 
     useEffect(() => {
         GetData({ url, setData });
-        console.log(data)
     }, []);
 
 
@@ -57,10 +59,19 @@ export default function ChessPage() {
                 {data.length > 0 && <MakeStats data={data} />}
             </div>
             <div className="right-component">
-                <ChessMap />
-
+                <div className="toggle-container">
+                    {!toggleMap && <span className='toggle-text'>Look at my progression!</span>}
+                    {toggleMap && <span className='toggle-text'>Look where I have played!</span>}
+                    <div className="toggle-button-container">
+                        <button className={`toggle-button ${toggleMap ? 'on' : 'off'}-page`} onClick={() => setToggleMap(true)}>Map</button>
+                        <button className={`toggle-button ${!toggleMap ? 'on' : 'off'}-page`} onClick={() => setToggleMap(false)}>Graph</button>
+                    </div>
+                </div>
+                <div className='toggle-show'>
+                    {toggleMap && <ChessMap />}
+                    {!toggleMap && <ChessGraph />}
+                </div>
             </div>
-
         </div>
     </>
 };
