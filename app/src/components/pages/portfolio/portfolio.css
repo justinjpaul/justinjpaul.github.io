@@ -1,0 +1,47 @@
+.project {
+    border-style: solid;
+    width: calc(90% - 2em);
+    background-color: #ced7e0;
+
+    border-radius: 25px;
+    /* margin: 1em; */
+    padding: 1em;
+    display: block;
+    margin-bottom: 2em;
+}   
+
+.project:hover {
+    transform: scale(1.1);
+}
+
+.project-image {
+    width: 100%;
+    height: auto;
+}
+
+/* .project-image:hover {
+    transform: scale(1.5);
+}  */
+
+.project-container {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    /* border-radius: 10px; */
+}
+
+.project-tag {
+    border-radius: 25px;
+    margin-right: 1em;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.tag-Repo {
+    background-color: #0909c7;
+    color: white;
+}
+
+.tag-MDST {
+    background-color: #fcf09c;
+    color: #0a66c2;
+}

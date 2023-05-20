@@ -12,6 +12,9 @@ body {
 }
 
 #main-container {
-  margin-left: 1em;
-  margin-right:1em;
+  margin: auto;
+  align-content: center;
+  width:75%;
+  /* margin-left: 1em;
+  margin-right:1em; */
 }
