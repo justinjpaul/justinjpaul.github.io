@@ -35,7 +35,7 @@ const ChessMap = () => {
   function colorSelector(placement){
     if (placement==1) {return "#FFD700"}
     if (placement==2) {return "#C0C0C0"}
-    if (placement==2) {return "#CD7F32"}
+    if (placement==3) {return "#CD7F32"}
     return "#3FB1CE"
   }
 
@@ -48,6 +48,7 @@ const ChessMap = () => {
           color={colorSelector(tourney.final_rank)}
           longitude={tourney.long}
           anchor="bottom"
+          scale={.5}
           onClick={e => {
             e.originalEvent.stopPropagation();
             handleMarkerClick(tourney);
@@ -82,7 +83,7 @@ const ChessMap = () => {
         initialViewState={{
           longitude: -40,
           latitude: 35,
-          zoom: 1
+          zoom: .5
         }}
       >
         {pins}
@@ -100,7 +101,7 @@ const ChessMap = () => {
               <br />
               Placed {ordinal_suffix_of(popupInfo.final_rank)} out of {popupInfo.participants} players
               <br />
-              {popupInfo['pre-rating']} {"=>"} {popupInfo['post-rating']}
+              {popupInfo['pre-rating'] && `${popupInfo['pre-rating']} => ${popupInfo['post-rating']}`}
             </div>
           </Popup>
         )}
