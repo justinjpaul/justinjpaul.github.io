@@ -1,0 +1,51 @@
+.chess-container {
+    height: 90%;
+    display: flex;
+  }
+
+.left-component {
+    flex-basis: 35%;
+    height: 100%;
+}
+
+
+.right-component {
+    flex-basis: 65%;
+    height: 100%;
+}
+
+ul {
+    padding: 0px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.chess-stats {
+    display: flex;
+    flex-direction: column;
+    background-color: #D9D9D9;
+    border-radius: 25px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: none;
+    margin-bottom: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+    
+}
+
+img {
+    background-color: transparent;
+}
+
+.mapboxgl-canvas, .mapboxgl-map{
+    width: 100%;
+    height: auto;
+} 
+
+.map-container{
+    width: 70%;
+    height: 70%;
+
+}
