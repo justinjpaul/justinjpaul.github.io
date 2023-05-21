@@ -1,7 +1,7 @@
 import './header.css';
 
 export default function Header(props) {
-    const [about, chess, portfolio, blog] = ['', 'chess', 'portfolio', 'blog'];
+    const [about, chess, portfolio, updates] = ['', 'chess', 'portfolio', 'updates'];
 
     function redirect(page) {
         window.location.href = `/${page}`;
@@ -14,7 +14,7 @@ export default function Header(props) {
                 <button onClick={() => redirect(about)} className={(props.page === about ? "on-page" : "off-page") + " button"} >About</button>
                 <button onClick={() => redirect(chess)} className={(props.page === chess ? "on-page" : "off-page") + " button"}>Chess</button>
                 <button onClick={() => redirect(portfolio)} className={(props.page === portfolio ? "on-page" : "off-page") + " button"}>Portfolio</button>
-                <button onClick={() => redirect(blog)} className={(props.page === blog ? "on-page" : "off-page") + " button"}>Blog</button>
+                <button onClick={() => redirect(updates)} className={(props.page === updates ? "on-page" : "off-page") + " button"}>Updates</button>
                 <div className="socials">
                     <div className="button-social">
                         <a href="mailto:justpaul@umich.edu" target="about:blank"><i className="far fa-envelope fa-lg"></i></a>
