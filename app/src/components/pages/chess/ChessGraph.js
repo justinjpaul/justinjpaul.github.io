@@ -10,6 +10,7 @@ const CustomTooltip = ({ active, payload, label }) => {
         return (
             <div className="custom-tooltip">
                 <p><b>{`${dataPoint.event}`}</b></p>
+                <p>{dataPoint.date}</p>
                 <p>{`${dataPoint['pre-rating']} => ${dataPoint['post-rating']}`}</p>
 
             </div>
@@ -53,7 +54,7 @@ const ChessGraph = () => {
                     <YAxis />
                     <Tooltip content={<CustomTooltip />} cursor={{ fill: "transparent" }} />
                     <Legend verticalAlign='top' />
-                    <Line type="monotone" strokeWidth={2} dataKey="post-rating" stroke="#8884d8" activeDot={{ r: 8 }} />
+                    <Line type="monotone" strokeWidth={2} dataKey="post-rating" stroke="#8884d8" />
                 </LineChart>
             </ResponsiveContainer>
             {/* <MultiRangeSlider

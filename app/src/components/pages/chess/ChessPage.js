@@ -9,7 +9,7 @@ import './chess.css'
 function format_elem(li) {
     return (
         <>
-            <ul style={{ "listStyleType": "none", "margin": "none", "justifyContent": "center" }}>
+            <ul style={{ "listStyleType": "none", "margin": "none", "justifyContent": "center", "paddingLeft":"5px", "paddingRight":"5px" }}>
                 {li.map(function (elem, i) {
                     return (
                         <li margin-inline-block="10em" overflow-wrap="true" key={`${elem}:${i}`} >{elem}</li>
@@ -63,8 +63,8 @@ export default function ChessPage() {
                     {!toggleMap && <span className='toggle-text'>Look at my progression!</span>}
                     {toggleMap && <span className='toggle-text'>Look where I have played!</span>}
                     <div className="toggle-button-container">
-                        <button className={`toggle-button ${toggleMap ? 'on' : 'off'}-page`} onClick={() => setToggleMap(true)}>Map</button>
-                        <button className={`toggle-button ${!toggleMap ? 'on' : 'off'}-page`} onClick={() => setToggleMap(false)}>Graph</button>
+                        <button className='toggle-button' disabled={!toggleMap} onClick={() => setToggleMap(false)}>Graph</button>
+                        <button className='toggle-button' disabled={toggleMap} onClick={() => setToggleMap(true)}>Map</button>
                     </div>
                 </div>
                 <div className='toggle-show'>

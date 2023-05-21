@@ -32,8 +32,8 @@ export default function AboutPage() {
             <div className="intro">
                 <div className='intro-pic-container'>
                     <div className="slideshow-button-container">
-                        <button className='toggle-button' disabled={currentSlide === 0} onClick={() => setCurrentSlide(Math.max(currentSlide - 1, 0))}>Prev</button>
-                        <button className='toggle-button' disabled={currentSlide === slides.length - 1} onClick={() => setCurrentSlide(Math.min(currentSlide + 1, slides.length - 1))}>Next</button>
+                        <button className='toggle-button slideshow-button' disabled={currentSlide === 0} onClick={() => setCurrentSlide(Math.max(currentSlide - 1, 0))}>Prev</button>
+                        <button className='toggle-button slideshow-button' disabled={currentSlide === slides.length - 1} onClick={() => setCurrentSlide(Math.min(currentSlide + 1, slides.length - 1))}>Next</button>
                     </div>
                     {slides.map((slide, index) => (
                         currentSlide === index && <div key={`intro-pic-${index}`}>
@@ -47,7 +47,7 @@ export default function AboutPage() {
                 <div className='intro-text'>
                     <p>Hi! My name is Justin and I am a senior at the University of Michigan 〽️ studying computer science.
                     </p>
-                    <p>I'm originally from the Northern VA, where I graduated from <a href='https://tjhsst.fcps.edu/' target='_blank'>Thomas Jefferson High School for Science and Technology</a>.
+                    <p>I'm originally from Northern VA, where I graduated from <a href='https://tjhsst.fcps.edu/' target='_blank'>Thomas Jefferson High School for Science and Technology</a>.
                         One of my fondest memories is making the varsity tennis team as a senior after barely missing the cut the previous three years.
                     </p>
                     <p>Currently, I am a machine learning student researcher for ProQuest. I am involved in various clubs and activities, including Rec Tennis, Chess Club, and the Michigan Data Science Team.
