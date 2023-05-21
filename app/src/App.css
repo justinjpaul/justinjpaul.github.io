@@ -18,3 +18,11 @@ body {
   /* margin-left: 1em;
   margin-right:1em; */
 }
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
