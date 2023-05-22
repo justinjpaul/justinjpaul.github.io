@@ -3,70 +3,66 @@
     width: auto;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .header-panel {
-    /* background-color: lightskyblue; */
     background-color: #659db8;
-    color: gray;
+    background-image: url("../../../public/background_sunset.png");
+    background-size: cover;
     display: flex;
-    height: 60%;
+    height: 80%;
     width: 100%;
-    size: 100%;
+    /* size: 100%; */
     justify-content: space-evenly;
     align-items: center;
 }
 
-.button,
+.header-button,
 .socials {
-    margin: .5em;
+    margin: 1em;
     border-radius: 25px;
     /* outline: none; */
     border: none;
 
     font-size: 100%;
     width: calc(20% - 2em);
-    height: 30%;
+    height: 33%;
+}
 
-    cursor: pointer;
+button {
+    background-color: #464545;
+    color: white;
 }
 
 .socials {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: right;
 }
 
 .button-container {
-    width: 75vh;
+    width: 75%;
     display: flex;
     height: 100%;
     align-items: center;
     justify-content: center;
 }
 
-.off-page {
-    background-color: green;
-    color: white;
-}
-
-.off-page:hover,
-.far:hover,
+button:hover:not([disabled]),
+.fa:hover,
 .fab:hover {
     filter: brightness(120%)
 }
 
-.on-page {
-    background-color: lightgreen;
-    color: green;
+button:disabled {
+    background-color: white;
+    color: #464545;
+    cursor: default;
 }
-
 
 
 .far,
 .fab {
-    /* color: #343d52; */
     margin: .2em;
     size: 100%;
 }
@@ -76,7 +72,7 @@
 }
 
 .fa-github {
-    color: #060671;
+    color: #0909c7;
 }
 
 .fa-linkedin {
