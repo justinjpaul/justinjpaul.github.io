@@ -1,0 +1,11 @@
+.update-container {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+
+}
+
+.update {
+    margin-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
