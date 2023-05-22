@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Header from '../../shared/Header';
-import GetData from '../../shared/GetData';
 import ChessMap from './ChessMap';
 import ChessGraph from './ChessGraph';
 
@@ -9,7 +8,7 @@ import './chess.css'
 function format_elem(li) {
     return (
         <>
-            <ul style={{ "listStyleType": "none", "margin": "none", "justifyContent": "center", "paddingLeft":"5px", "paddingRight":"5px" }}>
+            <ul style={{ "listStyleType": "none", "margin": "none", "justifyContent": "center", "paddingLeft": "5px", "paddingRight": "5px" }}>
                 {li.map(function (elem, i) {
                     return (
                         <li margin-inline-block="10em" overflow-wrap="true" key={`${elem}:${i}`} >{elem}</li>
@@ -39,18 +38,38 @@ function MakeStats({ data }) {
     );
 }
 
+const data = [
+    [
+        "US Chess rating: 2424",
+        "State Ranking (VA) 2nd"
+    ],
+    [
+        "US Chess National Master",
+        "World Chess Federation FIDE Master "
+    ],
+    [
+        "National Blitz Ranking (U21): 13th"
+    ],
+    [
+        "Multiple National and State Championships"
+    ],
+    [
+        "US Chess All American Team",
+        <>🇺🇸 (
+            <a target='_blank' rel='noreferrer' href='https://www.uschess.org/index.php/Press/2014-All-America-Chess-Team-Announced.html'>2014 </a>
+            and
+            <a target='_blank' rel='noreferrer' href='https://new.uschess.org/news/2017-all-american-team-announced'> 2017</a>
+            ) 🇺🇸</>
+    ],
+    [
+        "I have played all over!",
+        "🇦🇪 🇿🇦 🇬🇷"
+    ]
+]
 
 export default function ChessPage() {
     const page = 'chess';
-    const url = "/chess_stats.json";
-    const [data, setData] = useState([]);
     const [toggleMap, setToggleMap] = useState(false)
-    const [timeRange, setTimeRange] = useState([0, data.length - 1]);
-
-    useEffect(() => {
-        GetData({ url, setData });
-    }, []);
-
 
     return <>
         <Header page={page} />

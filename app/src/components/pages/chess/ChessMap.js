@@ -2,6 +2,7 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import React, { useEffect, useState, useMemo } from 'react';
 import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import GetData from '../../shared/GetData';
+import FormatDate from '../../shared/FormatDate';
 
 const ChessMap = () => {
 
@@ -33,9 +34,9 @@ const ChessMap = () => {
   }
 
   function colorSelector(placement){
-    if (placement==1) {return "#FFD700"}
-    if (placement==2) {return "#C0C0C0"}
-    if (placement==3) {return "#CD7F32"}
+    if (placement===1) {return "#FFD700"}
+    if (placement===2) {return "#C0C0C0"}
+    if (placement===3) {return "#CD7F32"}
     return "#3FB1CE"
   }
 
@@ -63,13 +64,13 @@ const ChessMap = () => {
   function ordinal_suffix_of(i) {
     var j = i % 10,
       k = i % 100;
-    if (j == 1 && k != 11) {
+    if (j === 1 && k !== 11) {
       return i + "st";
     }
-    if (j == 2 && k != 12) {
+    if (j === 2 && k !== 12) {
       return i + "nd";
     }
-    if (j == 3 && k != 13) {
+    if (j === 3 && k !== 13) {
       return i + "rd";
     }
     return i + "th";
@@ -95,9 +96,9 @@ const ChessMap = () => {
             anchor="top"
           >
             <div className="popup">
-              <b><a href={popupInfo.link} target="_blank">{popupInfo.event}</a></b>
+              <b><a href={popupInfo.link} rel='noreferrer' target="_blank">{popupInfo.event}</a></b>
               <br />
-              {popupInfo.date}
+              {FormatDate(popupInfo.date)}
               <br />
               Placed {ordinal_suffix_of(popupInfo.final_rank)} out of {popupInfo.participants} players
               <br />

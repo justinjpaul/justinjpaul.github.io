@@ -65,9 +65,9 @@ img {
     justify-content: center;
     align-items: center;
     height: auto;
-    /* background-color: #659db8; */
-    background-color: #9d98fd;
-    filter: brightness(1.2)
+    background-color: #659db8;
+    background-image: url('../../../../public/background_sunset2.png');
+    background-size: auto;
 }
 
 .toggle-button {

@@ -19,14 +19,9 @@
     height: auto;
 }
 
-/* .project-image:hover {
-    transform: scale(1.5);
-}  */
-
 .project-container {
     display: grid;
     grid-template-columns: 33% 33% 33%;
-    /* border-radius: 10px; */
 }
 
 .project-tag {
@@ -36,12 +31,12 @@
     text-decoration: none;
 }
 
-.tag-Repo {
+a.tag-Repo {
     background-color: #0909c7;
     color: white;
 }
 
-.tag-MDST {
+a.tag-MDST {
     background-color: #fcf09c;
     color: #0a66c2;
 }

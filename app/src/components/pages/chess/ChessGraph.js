@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import GetData from '../../shared/GetData';
-
+import FormatDate from '../../shared/FormatDate';
 
 
 const CustomTooltip = ({ active, payload, label }) => {
@@ -10,7 +10,7 @@ const CustomTooltip = ({ active, payload, label }) => {
         return (
             <div className="custom-tooltip">
                 <p><b>{`${dataPoint.event}`}</b></p>
-                <p>{dataPoint.date}</p>
+                <p>{FormatDate(dataPoint.date)}</p>
                 <p>{`${dataPoint['pre-rating']} => ${dataPoint['post-rating']}`}</p>
 
             </div>
@@ -54,7 +54,7 @@ const ChessGraph = () => {
                     <YAxis />
                     <Tooltip content={<CustomTooltip />} cursor={{ fill: "transparent" }} />
                     <Legend verticalAlign='top' />
-                    <Line type="monotone" strokeWidth={2} dataKey="post-rating" stroke="#8884d8" />
+                    <Line type="monotone" strokeWidth={2} dataKey="post-rating" stroke="#8884d8" dot={false}/>
                 </LineChart>
             </ResponsiveContainer>
             {/* <MultiRangeSlider
