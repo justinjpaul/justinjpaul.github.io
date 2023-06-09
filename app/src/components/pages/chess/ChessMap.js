@@ -86,7 +86,7 @@ const ChessMap = () => {
           latitude: 35,
           zoom: .5
         }}
-        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_KEY}
+        mapboxAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
       >
         {pins}
         {popupInfo && (
