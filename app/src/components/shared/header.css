@@ -152,8 +152,9 @@ button:disabled, .disabled-button {
     .mobile-dropdown-show {
         position: absolute;
         top:0;
-        background-color: rgba(207, 229, 249, .8);;
+        background-color: rgba(207, 229, 249, .9);;
         display: block !important;
+        z-index: 10;
     }
     .button-container-mobile{
         display: none;
