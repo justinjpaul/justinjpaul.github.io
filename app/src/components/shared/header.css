@@ -1,5 +1,5 @@
 .header {
-    height: 20vh;
+    height: 10%;
     width: auto;
     display: flex;
     justify-content: center;
@@ -25,13 +25,13 @@
     border: none;
 
     font-size: 100%;
-    width: calc(20% - 2em);
-    height: 33%;
+    /* width: calc(20% - 2em); */
+    /* height: 33%; */
 }
 
-button {
-    background-color: #464545;
-    color: white;
+button, .header-button {
+    background-color: #464545 !important;
+    color: white !important;
 }
 
 .socials {
@@ -41,25 +41,60 @@ button {
 }
 
 .button-container {
-    width: 75%;
-    display: flex;
+    padding-left: 1em;
+    padding-right: 2em;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
     height: 100%;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center; */
+    /* justify-content: center; */
+    list-style-type: none;
+}
+
+.button-container-mobile {
+    display: grid;
+    grid-template-columns: auto;
 }
 
 button:hover:not([disabled]),
 .fa:hover,
-.fab:hover {
+.fab:hover,
+.header-button:hover {
     filter: brightness(120%)
 }
 
-button:disabled {
-    background-color: white;
-    color: #464545;
-    cursor: default;
+button:disabled, .disabled-button {
+    background-color: white !important;
+    color: #464545 !important;
+    cursor: default !important;
 }
 
+.disabled-button {
+    filter: brightness(100%) !important;
+}
+
+.nav-button {
+    width: 90%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container .nav-button {
+    display: inline-block;
+    width: 100%;
+    justify-content: center;
+    
+}
+
+.header-button {
+    display:inline-block;
+    box-sizing: border-box;
+    padding:5px;
+    width: 80%;
+    max-width: calc(8em)
+}
 
 .far,
 .fab {
@@ -77,4 +112,62 @@ button:disabled {
 
 .fa-linkedin {
     color: #0a66c2
+}
+
+.dropdown-button {
+    display: none;
+}
+
+.mobile {
+    display: none;
+}
+@media screen and (max-width: 700px) {
+
+    .header {
+        height: auto !important;
+    }
+    .mobile{
+        display: block;
+    }
+    .header-panel {
+        height: 10% !important;
+    }
+    .dropdown-button {
+        display: inline;
+    }
+
+    .dropdown-button:hover {
+        cursor: pointer;
+    }
+    .dropdown-button {
+        display: inline-block;
+    }
+
+    .button-container {
+        display: none !important;
+    }
+
+    .mobile-dropdown-show {
+        position: absolute;
+        top:0;
+        background-color: rgba(207, 229, 249, .8);;
+        display: block !important;
+    }
+    .button-container-mobile{
+        display: none;
+    }
+
+    .button-container-mobile-open {
+        display: flex;
+        align-items: center;
+    }
+
+    .button-container-mobile-hidden {
+        visibility: hidden !important;
+    }
+
+    .extend-header {
+        display: flex !important;
+        height: auto !important;
+    }
 }
