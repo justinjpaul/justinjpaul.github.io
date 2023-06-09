@@ -73,14 +73,14 @@ export default function ChessPage() {
 
     return <>
         <Header page={page} />
+        {!toggleMap && <h1 className='toggle-text'>Look at my progression!</h1>}
+        {toggleMap && <h3 className='toggle-text'>Look where I have played!</h3>}
         <div className="chess-container">
             <div className="left-component">
                 {data.length > 0 && <MakeStats data={data} />}
             </div>
             <div className="right-component">
                 <div className="toggle-container">
-                    {!toggleMap && <span className='toggle-text'>Look at my progression!</span>}
-                    {toggleMap && <span className='toggle-text'>Look where I have played!</span>}
                     <div className="toggle-button-container">
                         <button className='toggle-button' disabled={!toggleMap} onClick={() => setToggleMap(false)}>Graph</button>
                         <button className='toggle-button' disabled={toggleMap} onClick={() => setToggleMap(true)}>Map</button>

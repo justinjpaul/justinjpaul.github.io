@@ -44,7 +44,6 @@ const ChessGraph = () => {
                     data={filteredData}
                     margin={{
                         top: 5,
-                        // right: 10,
                         left: 20,
                         bottom: 75,
                     }}
