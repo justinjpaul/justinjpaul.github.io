@@ -103,3 +103,24 @@ img {
     background-color: white;
     filter: opacity(.3);
 }
+
+@media screen and (max-width: 700px) {
+    .chess-container {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .custom-tooltip {
+        display: inline-block;
+        visibility: visible;
+        min-width: 15vh;
+        max-width: 30vh;
+        text-overflow: clip !important;
+        white-space: normal;
+        overflow: hidden;
+    }
+
+    .toggle-show {
+        margin-bottom: 1em;
+    }
+}

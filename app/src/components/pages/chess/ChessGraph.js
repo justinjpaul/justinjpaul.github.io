@@ -49,7 +49,7 @@ const ChessGraph = () => {
                         bottom: 75,
                     }}
                 >
-                    <XAxis dataKey="date" angle={-45} textAnchor="end" interval={50} tickMargin={10} >
+                    <XAxis dataKey="date" angle={-45} textAnchor="end" interval={70} tickMargin={10} >
                     </XAxis>
                     <YAxis />
                     <Tooltip content={<CustomTooltip />} cursor={{ fill: "transparent" }} />

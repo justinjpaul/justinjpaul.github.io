@@ -1,6 +1,6 @@
 import 'mapbox-gl/dist/mapbox-gl.css'
 import React, { useEffect, useState, useMemo } from 'react';
-import ReactMapGL, { Marker, Popup } from 'react-map-gl';
+import ReactMapGL, { Marker, Popup, FullscreenControl } from 'react-map-gl';
 import GetData from '../../shared/GetData';
 import FormatDate from '../../shared/FormatDate';
 
@@ -106,7 +106,7 @@ const ChessMap = () => {
             </div>
           </Popup>
         )}
-
+      <FullscreenControl />
       </ReactMapGL>
     </div>
   );
