@@ -4,19 +4,19 @@ import './about.css'
 
 const slides = [
     {
-        url: '/lake_lag_me.jpg',
+        url: '/pics/lake_lag_me.jpg',
         caption: 'A filled Lake Lag'
     },
     {
-        url: '/sf_sea_lion_me.png',
+        url: '/pics/sf_sea_lion_me.png',
         caption: 'Pier 39'
     },
     {
-        url: '/sis_and_me.jpg',
+        url: '/pics/sis_and_me.jpg',
         caption: 'My sister and me at the Big House!'
     },
     {
-        url: '/trumpet_me.jpg',
+        url: '/pics/trumpet_me.jpg',
         caption: "Playin' my trumpet!"
     },
 ];

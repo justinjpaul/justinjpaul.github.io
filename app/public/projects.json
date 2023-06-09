@@ -6,7 +6,7 @@
         "role": "Project Leader",
         "description": "An application that assists University of Michigan students in finding professors who lead labs in their areas of interest.",
         "skills": ["Python", "R", "HTML/CSS", "Webscraping"], 
-        "img": "./webscraping_app2.png",
+        "img": "./pics/webscraping_app2.png",
         "tags": [
             {
                 "name": "Repo",
@@ -26,7 +26,7 @@
         "role": "Project Leader",
         "description": "A data analysis of SEC filings from Q1 of 2020 to predict instances of insider trading.",
         "skills": ["Python", "Pandas", "NumPy"], 
-        "img": "./insider_trading.png",
+        "img": "./pics/insider_trading.png",
         "tags": [
             {
                 "name": "Repo",
@@ -46,7 +46,7 @@
         "role": "Project Leader",
         "description": "Created a movie recommendation system that uses an interactive quiz to provide customized movie recommendations to users.",
         "skills": ["Python", "Machine Learning", "KNN", "Matrix Factorization"], 
-        "img": "./movies_latent.png",
+        "img": "./pics/movies_latent.png",
         "tags": [
             {
                 "name": "Repo",
@@ -66,7 +66,7 @@
         "role": "Computer/Data Science Intern",
         "description": "Custom raster interpolation routines utilizing concurrent programming that cut down the existing tool from 24 hours to 8 minutes. The tool has command line functionality and is publicly available on GitHub.",
         "skills": ["Go", "Data Structures", "Concurrent Programming"], 
-        "img": "./v2r.png",
+        "img": "./pics/v2r.png",
         "tags": [
             {
                 "name": "Repo",
