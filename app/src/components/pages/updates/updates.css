@@ -9,3 +9,14 @@
     padding-left: 1em;
     padding-right: 1em;
 }
+
+@media screen and (max-width: 700px) {
+    .update {
+        align-self: center;
+        padding-right: 0;
+    }
+
+    .first {
+        padding-left: 0;
+    }
+}

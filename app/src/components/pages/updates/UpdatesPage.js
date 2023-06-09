@@ -70,7 +70,7 @@ export default function UpdatesPage() {
         <div className='update-container' height="90%">
             {updates.map((update, index) => {
                 return (<>
-                    <span className='update' key={`update-date-${index}`}>
+                    <span className='update first' key={`update-date-${index}`}>
                         {`${update.date}`}
                     </span>
                     <span className='update' key={`update-emoji-${index}`}>
