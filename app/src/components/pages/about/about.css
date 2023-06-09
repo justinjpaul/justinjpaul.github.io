@@ -1,9 +1,10 @@
 .intro {
     display: flex;
+    height: auto;
 }
 
 .intro-pic-container {
-    flex: 3;
+    flex: 1;
     display: flex;
     flex-direction: column;
 }
@@ -18,7 +19,7 @@
 }
 
 .intro-text {
-    flex: 2;
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,7 +29,17 @@
 .slideshow-button-container {
     width: 100%;
     display: flex;
-    height: 100%;
-    align-items: center;
+    /* height: 100%; */
+    align-items: start;
     justify-content: left;
+}
+
+@media screen and (max-width: 700px) {
+    .intro {
+        flex-direction: column;
+    }
+
+    .intro-text {
+        margin: 1em;
+    }
 }

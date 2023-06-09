@@ -58,7 +58,6 @@ export default function Header(props) {
                     <a href="https://www.linkedin.com/in/jpaul24/" target="about:blank"><i className="fab fa-linkedin fa-lg"></i></a>
                 </div>
             </div>
-            {/* </div> */}
         </div>
     </div>
 };

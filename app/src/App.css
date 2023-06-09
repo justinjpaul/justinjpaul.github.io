@@ -14,17 +14,17 @@ body {
 #main-container {
   margin: auto;
   align-content: center;
-  width:75%;
+  width:80%;
   /* margin-left: 1em;
   margin-right:1em; */
 }
 
-button {
+button, .header-button {
   cursor: pointer;
 }
 
-button:disabled {
-  cursor: default;
+button:disabled, .disabled-button {
+  cursor: default !important;
 }
 
 a {
