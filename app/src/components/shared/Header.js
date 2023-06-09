@@ -29,7 +29,7 @@ export default function Header(props) {
             {/* <div className="button-container"> */}
             <div className='mobile'>
                 {<span ref={dropdownRef} className={`button-container-mobile-${viewNavDropdown ? 'hidden' :'open'}`}>
-                    <span className={'header-button'} onClick={() => {setViewNavDropdown(true); console.log(viewNavDropdown)}}>&#9776;</span>
+                    <span className={'header-button'} onClick={() => {setViewNavDropdown(true)}}>&#9776;</span>
                 </span>}
                 <ul className={`button-container-mobile${viewNavDropdown ? ' mobile-dropdown-show' : ''}`}>
                     <li className='nav-button'>
