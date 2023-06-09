@@ -33,31 +33,31 @@ export default function Header(props) {
                 </span>}
                 <ul className={`button-container-mobile${viewNavDropdown ? ' mobile-dropdown-show' : ''}`}>
                     <li className='nav-button'>
-                        <a className={`header-button${props.page === about ? ' disabled-button' : ''}`} href='/'>About</a>
+                        <a className={`header-button${props.page === about ? ' disabled-button' : ''}`} href='/#/'>About</a>
                     </li>
                     <li className='nav-button'>
-                        <a className={`header-button${props.page === chess ? ' disabled-button' : ''}`} href='/chess'>Chess</a>
+                        <a className={`header-button${props.page === chess ? ' disabled-button' : ''}`} href='/#/chess'>Chess</a>
                     </li>
                     <li className='nav-button'>
-                        <a className={`header-button${props.page === portfolio ? ' disabled-button' : ''}`} href='/portfolio'>Portfolio</a>
+                        <a className={`header-button${props.page === portfolio ? ' disabled-button' : ''}`} href='/#/portfolio'>Portfolio</a>
                     </li>
                     <li className='nav-button'>
-                        <a className={`header-button${props.page === updates ? ' disabled-button' : ''}`} href='/updates'>Updates</a>
+                        <a className={`header-button${props.page === updates ? ' disabled-button' : ''}`} href='/#/updates'>Updates</a>
                     </li>
                 </ul>
             </div>
             <ul className='button-container'>
                 <li className='nav-button'>
-                    <a className={`header-button${props.page === about ? ' disabled-button' : ''}`} href='/'>About</a>
+                    <a className={`header-button${props.page === about ? ' disabled-button' : ''}`} href='/#/'>About</a>
                 </li>
                 <li className='nav-button'>
-                    <a className={`header-button${props.page === chess ? ' disabled-button' : ''}`} href='/chess'>Chess</a>
+                    <a className={`header-button${props.page === chess ? ' disabled-button' : ''}`} href='/#/chess'>Chess</a>
                 </li>
                 <li className='nav-button'>
-                    <a className={`header-button${props.page === portfolio ? ' disabled-button' : ''}`} href='/portfolio'>Portfolio</a>
+                    <a className={`header-button${props.page === portfolio ? ' disabled-button' : ''}`} href='/#/portfolio'>Portfolio</a>
                 </li>
                 <li className='nav-button'>
-                    <a className={`header-button${props.page === updates ? ' disabled-button' : ''}`} href='/updates'>Updates</a>
+                    <a className={`header-button${props.page === updates ? ' disabled-button' : ''}`} href='/#/updates'>Updates</a>
                 </li>
             </ul>
 
