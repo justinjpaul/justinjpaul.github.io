@@ -40,3 +40,13 @@ a.tag-MDST {
     background-color: #fcf09c;
     color: #0a66c2;
 }
+
+@media screen and (max-width: 700px) {
+    .project-container {
+        grid-template-columns: auto;
+    }
+
+    .project:hover {
+        transform: scale(1);
+    }
+}
