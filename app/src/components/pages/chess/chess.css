@@ -45,6 +45,7 @@ img {
 .mapboxgl-canvas,
 .mapboxgl-map {
     width: 100%;
+    aspect-ratio: 1 / .6;
     height: auto;
 }
 

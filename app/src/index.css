@@ -1,13 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Lora&display=swap');
+
 body {
   margin: 0;
-  font-family: "Lora", Verdana, Geneva, Tahoma, sans-serif sans-serif;
+  font-family: "Lora", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: large;
 }
 
+button {
+  font-family: "Lora", serif;
+}
+
 head {
-  font-family: "Lora", Verdana, Geneva, Tahoma, sans-serif sans-serif;
+  font-family: "Lora", serif;
   font-size: larger;
 }
 

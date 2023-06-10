@@ -5,15 +5,15 @@ import './about.css'
 const slides = [
     {
         url: '/pics/lake_lag_me.jpg',
-        caption: 'A filled Lake Lag'
+        caption: <>Standing in front of a filled <a referrer='noreferrer' target='_blank' href='https://stanforddaily.com/2023/01/09/so-much-more-alive-stanford-students-rejoice-over-full-lake-lag/'>Lake Lag</a>'</>
     },
     {
         url: '/pics/sf_sea_lion_me.png',
-        caption: 'Pier 39'
+        caption: 'At Pier 39'
     },
     {
         url: '/pics/sis_and_me.jpg',
-        caption: 'My sister and me at the Big House!'
+        caption: 'At the Big House with my sister!'
     },
     {
         url: '/pics/trumpet_me.jpg',
