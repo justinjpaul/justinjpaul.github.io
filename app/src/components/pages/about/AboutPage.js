@@ -5,7 +5,7 @@ import './about.css'
 const slides = [
     {
         url: '/pics/lake_lag_me.jpg',
-        caption: <>Standing in front of a filled <a referrer='noreferrer' target='_blank' href='https://stanforddaily.com/2023/01/09/so-much-more-alive-stanford-students-rejoice-over-full-lake-lag/'>Lake Lag</a>'</>
+        caption: <>Standing in front of a filled <a rel='noreferrer' target='_blank' href='https://stanforddaily.com/2023/01/09/so-much-more-alive-stanford-students-rejoice-over-full-lake-lag/'>Lake Lag</a>'</>
     },
     {
         url: '/pics/sf_sea_lion_me.png',
