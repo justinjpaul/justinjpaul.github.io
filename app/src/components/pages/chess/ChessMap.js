@@ -7,18 +7,13 @@ import FormatDate from '../../shared/FormatDate';
 const ChessMap = () => {
 
   const mapStyle = {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
+    position: 'relative',
   };
 
   const mapContainerStyle = {
     position: 'relative',
     width: '100%',
-    height: '100%',
-    paddingBottom: '80%'
+    height: 'auto',
   };
 
   const [popupInfo, setPopupInfo] = useState(null);
@@ -86,7 +81,7 @@ const ChessMap = () => {
           latitude: 35,
           zoom: .5
         }}
-        mapboxAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
+        mapboxAccessToken='pk.eyJ1IjoiamNoZXNzIiwiYSI6ImNsaHQ4NXlwcjB4czYzam1yNmc3cnQyOXEifQ.f9AgQqpfRvrzJXKOe8gEKw'
       >
         {pins}
         {popupInfo && (

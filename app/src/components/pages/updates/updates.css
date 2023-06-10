@@ -12,7 +12,6 @@
 
 @media screen and (max-width: 700px) {
     .update {
-        align-self: center;
         padding-right: 0;
     }
 
