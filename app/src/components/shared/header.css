@@ -1,5 +1,7 @@
 .header {
-    height: 10%;
+    height: 10vw;
+    min-height: 12vh;
+    max-height: 20vh;
     width: auto;
     display: flex;
     justify-content: center;
@@ -70,6 +72,7 @@ button:disabled, .disabled-button {
 
 .nav-button {
     width: 90%;
+    height: auto;
     display: block;
     justify-content: center;
     align-items: center;
@@ -87,7 +90,8 @@ button:disabled, .disabled-button {
     box-sizing: border-box;
     padding:5px;
     width: 80%;
-    max-width: calc(8em)
+    height: auto;
+    font-size:2vw;
 }
 
 .far,
@@ -126,6 +130,8 @@ button:disabled, .disabled-button {
     }
     .header-panel {
         height: 10% !important;
+        justify-content: space-between;
+        padding: 1em;
     }
     .dropdown-button {
         display: inline;
@@ -143,19 +149,32 @@ button:disabled, .disabled-button {
     }
 
     .mobile-dropdown-show {
-        position: absolute;
+        margin: 0;
+        margin-top: .7em;
+        position:absolute;
         top:0;
-        background-color: rgba(207, 229, 249, .9);;
-        display: block !important;
+        display: grid !important;
+        grid-template-columns: auto auto;
         z-index: 10;
+        justify-content: center;
     }
+
+    .header-button {
+        margin-top: 0em;
+        margin-bottom: .4em;
+        margin-left: .2em;
+        margin-right: .2em;
+        width: 100%;
+        font-size: large;
+    }
+
     .button-container-mobile{
         display: none;
     }
 
     .button-container-mobile-open {
         display: flex;
-        align-items: center;
+        align-items: left;
     }
 
     .button-container-mobile-hidden {
