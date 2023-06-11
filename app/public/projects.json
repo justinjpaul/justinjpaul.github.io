@@ -62,7 +62,7 @@
     {
         "name": "Vector 2 Raster",
         "ranking": 7,
-        "date": "(Summmer '22)",
+        "date": "(Summer '22)",
         "role": "Computer/Data Science Intern",
         "description": "Custom raster interpolation routines utilizing concurrent programming that cut down the existing tool from 24 hours to 8 minutes. The tool has command line functionality and is publicly available on GitHub.",
         "skills": ["Go", "Data Structures", "Concurrent Programming"], 
