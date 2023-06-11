@@ -25,7 +25,6 @@ const ChessGraph = () => {
     const [data, setData] = useState([]);
     const url = '/tourneys_fuzzed.json';
     const [filteredData, setFilteredData] = useState([])
-    const [graphAspect, setGraphAspect] = useState(1.5)
     const windowSize = useWindowSize()
 
     useEffect(()=> {
@@ -56,7 +55,7 @@ const ChessGraph = () => {
                     data={filteredData}
                     margin={{
                         top: 5,
-                        left: 5,
+                        left: 15,
                         bottom: 75,
                     }}
                 >

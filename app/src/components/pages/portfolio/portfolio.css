@@ -1,6 +1,6 @@
 .project {
     border-style: solid;
-    width: calc(90% - 2em);
+    /* width: calc(90% - 2em); */
     background-color: #ced7e0;
 
     border-radius: 25px;
@@ -10,7 +10,7 @@
 }   
 
 .project:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .project-image {
@@ -21,6 +21,8 @@
 .project-container {
     display: grid;
     grid-template-columns: 33% 33% 33%;
+    justify-items: center;
+    column-gap: 2em;
 }
 
 .project-tag {
@@ -40,12 +42,23 @@ a.tag-MDST {
     color: #0a66c2;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1230px) {
+    .project-container {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media screen and (max-width: 900px) {
     .project-container {
         grid-template-columns: auto;
     }
 
     .project:hover {
         transform: scale(1);
+    }
+
+    .project {
+
+        width: fit-content;
     }
 }

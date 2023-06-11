@@ -18,8 +18,9 @@ export default function PortfolioPage() {
 
     return <>
         <Header page={page}/>
-        {/* <GitDisplay /> */}
-        <Projects />
-        
+        <div className='main-body'>
+            {/* <GitDisplay /> */}
+            <Projects />
+        </div>
     </>
 };

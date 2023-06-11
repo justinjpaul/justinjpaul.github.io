@@ -5,7 +5,11 @@ body {
   font-family: "Lora", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: large;
+  font-size: calc(9px + 1vw);
+}
+
+p {
+  font-size: calc(12px + .3vw);
 }
 
 button {
@@ -21,3 +25,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+h1 {
+  font-size: calc(14px + 1.5vw);
+}
+
+h2 {
+  font-size: calc(12px + 1.25vw);
+}
+
+h3 {
+  font-size: calc(10px + 1vw);
+}
+
+* { font-size: 100%; }

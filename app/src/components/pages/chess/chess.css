@@ -34,8 +34,11 @@ ul {
     text-align: center;
     margin-top: none;
     margin-bottom: 1em;
-    /* margin-right: 1em; */
+    font-size: calc(10px + .8vw);
+}
 
+tspan {
+    font-size: calc(12px + .5vw);
 }
 
 img {
