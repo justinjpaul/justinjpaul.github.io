@@ -55,15 +55,21 @@ const data = [
     ],
     [
         "US Chess All American Team",
-        <>🇺🇸 (
-            <a target='_blank' rel='noreferrer' href='https://www.uschess.org/index.php/Press/2014-All-America-Chess-Team-Announced.html'>2014 </a>
+        <>
+        <img src='/pics/usa-flag-xs.png' alt='USA Flag' height='13px' width='auto'></img>
+            &nbsp;(<a target='_blank' rel='noreferrer' href='https://www.uschess.org/index.php/Press/2014-All-America-Chess-Team-Announced.html'>2014 </a>
             and
-            <a target='_blank' rel='noreferrer' href='https://new.uschess.org/news/2017-all-american-team-announced'> 2017</a>
-            ) 🇺🇸</>
+            <a target='_blank' rel='noreferrer' href='https://new.uschess.org/news/2017-all-american-team-announced'> 2017</a>)&nbsp;
+        <img src='/pics/usa-flag-xs.png' alt='USA Flag' height='13px' width='auto'></img>
+        </>
     ],
     [
         "I have played all over!",
-        "🇦🇪 🇿🇦 🇬🇷"
+        <>
+            <img src='/pics/uae-flag-xs.png' alt='UAE Flag' height='13px' width='auto'></img>&nbsp;
+            &nbsp;<img src='/pics/south-africa-flag-xs.png' alt='South Africa Flag' height='13px' width='auto'></img>&nbsp;
+            &nbsp;<img src='/pics/greece-flag-xs.png' alt='Greece Flag' height='13px' width='auto'></img>
+        </>
     ]
 ]
 
@@ -73,22 +79,24 @@ export default function ChessPage() {
 
     return <>
         <Header page={page} />
-        {!toggleMap && <h1 className='toggle-text'>Look at my progression!</h1>}
-        {toggleMap && <h1 className='toggle-text'>Look where I have played!</h1>}
-        <div className="chess-container">
-            <div className="left-component">
-                {data.length > 0 && <MakeStats data={data} />}
-            </div>
-            <div className="right-component">
-                <div className="toggle-container">
-                    <div className="toggle-button-container">
-                        <button className='toggle-button' disabled={!toggleMap} onClick={() => setToggleMap(false)}>Graph</button>
-                        <button className='toggle-button' disabled={toggleMap} onClick={() => setToggleMap(true)}>Map</button>
-                    </div>
+        <div className='main-body'>
+            <div className="chess-container">
+                <div className="left-component">
+                    {data.length > 0 && <MakeStats data={data} />}
                 </div>
-                <div className='toggle-show'>
-                    {toggleMap && <ChessMap />}
-                    {!toggleMap && <ChessGraph />}
+                <div className="right-component">
+                    <div className="toggle-container">
+                        <div className="toggle-button-container">
+                            {!toggleMap && <span className='toggle-text'>Look at my rating progression!</span>}
+                            {toggleMap && <span className='toggle-text'>Look where I have played!</span>}
+                            <button className='toggle-button' disabled={!toggleMap} onClick={() => setToggleMap(false)}>Graph</button>
+                            <button className='toggle-button' disabled={toggleMap} onClick={() => setToggleMap(true)}>Map</button>
+                        </div>
+                    </div>
+                    <div className='toggle-show'>
+                        {toggleMap && <ChessMap />}
+                        {!toggleMap && <ChessGraph />}
+                    </div>
                 </div>
             </div>
         </div>

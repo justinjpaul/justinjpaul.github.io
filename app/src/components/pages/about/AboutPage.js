@@ -28,7 +28,7 @@ export default function AboutPage() {
 
     return <>
         <Header page={page} />
-        <div className="intro">
+        <div className="intro main-body">
             <div className='intro-pic-container'>
                 <div className="slideshow-button-container">
                     <button className='toggle-button slideshow-button' disabled={currentSlide === 0} onClick={() => setCurrentSlide(Math.max(currentSlide - 1, 0))}>Prev</button>

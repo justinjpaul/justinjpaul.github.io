@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import GetData from '../../shared/GetData';
 import FormatDate from '../../shared/FormatDate';
-
+import { useWindowSize } from "@uidotdev/usehooks";
 
 const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
         const dataPoint = payload[0].payload;
         return (
             <div className="custom-tooltip">
-                <p><b>{`${dataPoint.event}`}</b></p>
-                <p>{FormatDate(dataPoint.date)}</p>
-                <p>{`${dataPoint['pre-rating']} => ${dataPoint['post-rating']}`}</p>
+                <p className='on-graph'><b>{`${dataPoint.event}`}</b></p>
+                <p className='on-graph'>{FormatDate(dataPoint.date)}</p>
+                <p className='on-graph'>{`${dataPoint['pre-rating']} => ${dataPoint['post-rating']}`}</p>
 
             </div>
         );
@@ -25,6 +25,20 @@ const ChessGraph = () => {
     const [data, setData] = useState([]);
     const url = '/tourneys_fuzzed.json';
     const [filteredData, setFilteredData] = useState([])
+    const [graphAspect, setGraphAspect] = useState(1.5)
+    const windowSize = useWindowSize()
+
+    useEffect(()=> {
+        console.log(windowSize)
+    }, [windowSize.width])
+
+    function scale (number, inMin, inMax, outMin, outMax) {
+        return (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+    }
+
+    function updateAspect() {
+        return windowSize.width > 1200 ? 1.5 : windowSize.width < 700 ? .9 : scale(windowSize.width, 700, 1200, 1, 1,5)
+    }
 
     useEffect(() => {
         GetData({ url, setData });
@@ -33,18 +47,16 @@ const ChessGraph = () => {
     useEffect(() => {
         setFilteredData(data.filter((obj) => obj.hasOwnProperty('pre-rating')).reverse());
     }, [data, setFilteredData])
-
-
     return (
         <>
-            <ResponsiveContainer aspect={1.5}>
+            <ResponsiveContainer aspect={updateAspect()}>
                 <LineChart
-                    width={500}
-                    height={300}
+                    width='500'
+                    height='300'
                     data={filteredData}
                     margin={{
                         top: 5,
-                        left: 20,
+                        left: 5,
                         bottom: 75,
                     }}
                 >
@@ -52,8 +64,8 @@ const ChessGraph = () => {
                     </XAxis>
                     <YAxis />
                     <Tooltip content={<CustomTooltip />} cursor={{ fill: "transparent" }} />
-                    <Legend verticalAlign='top' />
-                    <Line type="monotone" strokeWidth={2} dataKey="post-rating" stroke="#8884d8" dot={false}/>
+                    {/* <Legend iconType='plainline' layout='vertical' verticalAlign='middle'/> */}
+                    <Line type="monotone" strokeWidth={2} dataKey="post-rating" name="Rating" stroke="#659db8" dot={false}/>
                 </LineChart>
             </ResponsiveContainer>
             {/* <MultiRangeSlider
