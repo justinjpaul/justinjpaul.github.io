@@ -30,13 +30,3 @@ button, .header-button {
 button:disabled, .disabled-button {
   cursor: default !important;
 }
-
-a {
-  text-decoration: none;
-  color: dodgerblue;
-  font-weight: bold;
-}
-
-a:visited {
-  color: #0909c7;
-}
