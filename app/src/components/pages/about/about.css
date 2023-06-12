@@ -25,6 +25,13 @@
     margin-left: 2em;
 }
 
+.slideshow-button {
+    margin-left: 0em !important;
+}
+
+.caption {
+    font-size: medium;
+}
 .slideshow-button-container {
     width: 100%;
     display: flex;
@@ -32,7 +39,7 @@
     justify-content: left;
 }
 
-@media screen and (max-width: 1111px) {
+@media screen and (max-width: 935px) {
     .intro {
         flex-direction: column;
     }

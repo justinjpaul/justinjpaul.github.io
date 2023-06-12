@@ -1,11 +1,16 @@
 import { useState } from 'react';
 import Header from '../../shared/Header';
 import './about.css'
+import cometGif from './comet.gif'
 
 const slides = [
     {
         url: '/pics/lake_lag_me.jpg',
-        caption: <>Standing in front of a filled <a rel='noreferrer' target='_blank' href='https://stanforddaily.com/2023/01/09/so-much-more-alive-stanford-students-rejoice-over-full-lake-lag/'>Lake Lag</a>'</>
+        caption: <>Standing in front of a filled <a rel='noreferrer' target='_blank' href='https://stanforddaily.com/2023/01/09/so-much-more-alive-stanford-students-rejoice-over-full-lake-lag/'>Lake Lag</a></>
+    },
+    {
+        url: 'comet.gif',
+        caption: "Drivin' my 1967 Mercury Comet I helped my uncle restore!"
     },
     {
         url: '/pics/sf_sea_lion_me.png',
@@ -26,18 +31,32 @@ export default function AboutPage() {
 
     const [currentSlide, setCurrentSlide] = useState(0);
 
+    const NumberedButtons = () => ( 
+        <div className='slideshow-button-container'>
+            {slides.map((_, ind) => {
+                return <button 
+                className='toggle-button slideshow-button' 
+                key={`slideshow-${ind}`} 
+                disabled={currentSlide === ind} 
+                onClick={() => setCurrentSlide(ind)}
+                >
+                    {ind+1}
+                </button>
+            })}
+        </div>
+    )
+
     return <>
         <Header page={page} />
         <div className="intro main-body">
             <div className='intro-pic-container'>
-                <div className="slideshow-button-container">
-                    <button className='toggle-button slideshow-button' disabled={currentSlide === 0} onClick={() => setCurrentSlide(Math.max(currentSlide - 1, 0))}>Prev</button>
-                    <button className='toggle-button slideshow-button' disabled={currentSlide === slides.length - 1} onClick={() => setCurrentSlide(Math.min(currentSlide + 1, slides.length - 1))}>Next</button>
-                </div>
+                <NumberedButtons />
                 {slides.map((slide, index) => (
                     currentSlide === index && <div key={`intro-pic-${index}`}>
-                        <img className='intro-pic' src={slide.url} alt={slide.caption}></img>
-                        <span margin='none'>{slide.caption}</span>
+                        { slide.url === 'comet.gif' ? 
+                        <img src={cometGif} className='intro-pic'></img> : <img className='intro-pic' src={slide.url} alt={slide.caption}></img>
+                        }
+                        <span className='caption' margin='none'>{slide.caption}</span>
                     </div>
                 ))}
             </div>
