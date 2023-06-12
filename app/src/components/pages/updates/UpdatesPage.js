@@ -3,7 +3,7 @@ import './updates.css'
 
 const emojiMap = {
     'chess': '♟️',
-    'michigan': <img width='22px' height='auto' alt='〽️' src='https://umich.edu/favicon.ico'></img>,
+    'michigan': <img className='update-text' width='auto' height='auto' alt='〽️' src='https://umich.edu/favicon.ico'></img>,
     'cs': '🧑‍💻',
 }
 
@@ -58,6 +58,12 @@ const updates = [
         description: <>Dean's Honor <a rel='noreferrer' target='_blank' href='https://studentawards.engin.umich.edu/wp-content/uploads/sites/17/2023/04/FALL_2022_DHL_Website_Amended-04.18.23.pdf'>List</a> - Fall</>
 
     },
+    {
+        date: "May 1, 2023",
+        category: "cs",
+        description: <>Returned for my second internship at <a rel='noreferrer' target='blank' href='https://www.dewberry.com/'>Dewberry!</a></>
+
+    },
 
 ].reverse()
 
@@ -67,7 +73,7 @@ export default function UpdatesPage() {
 
     return <>
         <Header page={page} />
-        <div className='update-container' height="90%">
+        <div className='update-container main-body' height="90%">
             {updates.map((update, index) => {
                 return (<>
                     <span className='update first' key={`update-date-${index}`}>

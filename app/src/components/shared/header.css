@@ -1,10 +1,11 @@
 .header {
-    height: 10vw;
+    height: 5vw;
     min-height: 12vh;
     max-height: 20vh;
     width: auto;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
+    /* align-items: center; */
     margin-bottom: 2em;
 }
 
@@ -13,7 +14,6 @@
     background-image: url("../../../public/pics/background_sunset.png");
     background-size: cover;
     display: flex;
-    height: 80%;
     width: 100%;
     justify-content: space-evenly;
     align-items: center;
@@ -37,14 +37,16 @@ button, .header-button {
     align-items: center;
     justify-content: right;
 }
-
+ul {
+    margin-block: 0em;
+}
 .button-container {
     padding-left: 1em;
     padding-right: 2em;
     width: 100%;
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
-    height: 100%;
+    height: auto;
     list-style-type: none;
 }
 
@@ -56,7 +58,7 @@ button, .header-button {
 button:hover:not([disabled]),
 .fa:hover,
 .fab:hover,
-.header-button:hover {
+.header-button:hover, .header-buttonmobile:hover {
     filter: brightness(120%)
 }
 
@@ -90,7 +92,7 @@ button:disabled, .disabled-button {
     box-sizing: border-box;
     padding:5px;
     width: 80%;
-    height: auto;
+    height:80%;
     font-size:2vw;
 }
 
@@ -119,14 +121,15 @@ button:disabled, .disabled-button {
 .mobile {
     display: none;
 }
-@media screen and (max-width: 700px) {
+
+@media screen and (max-width: 500px) {
 
     .header {
         height: auto !important;
         margin-bottom: 1em;
     }
     .mobile{
-        display: block;
+        display: flex;
     }
     .header-panel {
         height: 10% !important;
@@ -149,23 +152,24 @@ button:disabled, .disabled-button {
     }
 
     .mobile-dropdown-show {
+        height: auto;
         margin: 0;
-        margin-top: .7em;
-        position:absolute;
-        top:0;
+        /* position: absolute;
+        top:0; */
         display: grid !important;
         grid-template-columns: auto auto;
         z-index: 10;
-        justify-content: center;
+        justify-items: center;
+        align-items: center
     }
 
     .header-button {
-        margin-top: 0em;
-        margin-bottom: .4em;
-        margin-left: .2em;
-        margin-right: .2em;
-        width: 100%;
-        font-size: large;
+        margin-top: .2em;
+        margin-bottom: .2em;
+        margin-left: .8em;
+        margin-right: .8em;
+        width: 80%;
+        font-size: calc(8px + 1.5vw);
     }
 
     .button-container-mobile{
@@ -178,11 +182,19 @@ button:disabled, .disabled-button {
     }
 
     .button-container-mobile-hidden {
-        visibility: hidden !important;
+        display: none !important;
     }
 
     .extend-header {
         display: flex !important;
         height: auto !important;
+        padding: 0em;
+    }
+}
+
+@media screen and (max-width: 250px) {
+    .socials {
+        flex-direction: column;
+        margin: 0em;
     }
 }

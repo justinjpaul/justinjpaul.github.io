@@ -25,7 +25,7 @@ export default function Header(props) {
       }, []);
 
     return <div className="header">
-        <div className={`header-panel${viewNavDropdown ? ' extend-header' : ''}`}>
+        <div className={`header-panel extend-header`}>
             {/* <div className="button-container"> */}
             <div className='mobile'>
                 {<span ref={dropdownRef} className={`button-container-mobile-${viewNavDropdown ? 'hidden' :'open'}`}>

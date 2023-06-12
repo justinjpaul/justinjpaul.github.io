@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import GetData from '../../shared/GetData';
 import FormatDate from '../../shared/FormatDate';
 import { useWindowSize } from "@uidotdev/usehooks";
@@ -27,16 +27,12 @@ const ChessGraph = () => {
     const [filteredData, setFilteredData] = useState([])
     const windowSize = useWindowSize()
 
-    useEffect(()=> {
-        console.log(windowSize)
-    }, [windowSize.width])
-
     function scale (number, inMin, inMax, outMin, outMax) {
         return (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
     }
 
     function updateAspect() {
-        return windowSize.width > 1200 ? 1.5 : windowSize.width < 700 ? .9 : scale(windowSize.width, 700, 1200, 1, 1,5)
+        return windowSize.width > 800 ? 1.5 : windowSize.width < 700 ? .9 : scale(windowSize.width, 700, 800, 1, 1,5)
     }
 
     useEffect(() => {
@@ -48,7 +44,7 @@ const ChessGraph = () => {
     }, [data, setFilteredData])
     return (
         <>
-            <ResponsiveContainer aspect={updateAspect()}>
+            <ResponsiveContainer aspect={updateAspect()} width='100%' height='auto'>
                 <LineChart
                     width='500'
                     height='300'
@@ -63,10 +59,10 @@ const ChessGraph = () => {
                     </XAxis>
                     <YAxis />
                     <Tooltip content={<CustomTooltip />} cursor={{ fill: "transparent" }} />
-                    {/* <Legend iconType='plainline' layout='vertical' verticalAlign='middle'/> */}
+                    {/* <Legend iconType='plainline' layout='bottom' verticalAlign='bottom'/> */}
                     <Line type="monotone" strokeWidth={2} dataKey="post-rating" name="Rating" stroke="#659db8" dot={false}/>
                 </LineChart>
-            </ResponsiveContainer>
+            </ResponsiveContainer>            
             {/* <MultiRangeSlider
                 min={0}
                 max={data.length - 1}

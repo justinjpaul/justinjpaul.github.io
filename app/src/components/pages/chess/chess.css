@@ -34,7 +34,7 @@ ul {
     text-align: center;
     margin-top: none;
     margin-bottom: 1em;
-    font-size: calc(10px + .8vw);
+    font-size: calc(8px + .8vw);
 }
 
 tspan {
@@ -120,7 +120,7 @@ img {
 }
 
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 800px) {
     .chess-container {
         display: flex;
         flex-direction: column-reverse;
