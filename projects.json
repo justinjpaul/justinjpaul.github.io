@@ -10,7 +10,7 @@
         "tags": [
             {
                 "name": "Repo",
-                "link": "https://github.com/MichiganDataScienceTeam/webscraping"
+                "link": "https://github.com/MichiganDataScienceTeam/W23-Webscraping"
             },
             {
                 "name": "MDST",
@@ -78,7 +78,7 @@
     {
         "name": "GistHub",
         "ranking": 10,
-        "date": "(Nov 18-19)",
+        "date": "(Fall '23)",
         "role": "Hacker",
         "description": "An AI-powered colaborative note-taking app we made at MHacks 16 in just 24 hours!",
         "skills": ["MongoDB", "Google Cloud", "Flask", "React", "UM GPT"], 
