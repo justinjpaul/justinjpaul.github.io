@@ -14,7 +14,7 @@
             },
             {
                 "name": "MDST",
-                "link": "https://www.mdst.club/"
+                "link": "https://docs.google.com/document/d/1uVD5nvpA0lg9E8tE9khuEQDlwCwHKgrHGqtvzKe2JoA/"
             }
         ]
         
@@ -34,7 +34,7 @@
             },
             {
                 "name": "MDST",
-                "link": "https://www.mdst.club/projects/sec-insider-information-visualization"
+                "link": "https://www.mdst.club/"
             }
         ]
         
@@ -54,7 +54,7 @@
             },
             {
                 "name": "MDST",
-                "link": "https://www.mdst.club/projects/movie-recommendations"
+                "link": "https://www.mdst.club/"
             }
         ]
         
@@ -71,6 +71,26 @@
             {
                 "name": "Repo",
                 "link": "https://github.com/dewberry/v2r"
+            }
+        ]
+        
+    },
+    {
+        "name": "GistHub",
+        "ranking": 10,
+        "date": "(Nov 18-19)",
+        "role": "Hacker",
+        "description": "An AI-powered colaborative note-taking app we made at MHacks 16 in just 24 hours!",
+        "skills": ["MongoDB", "Google Cloud", "Flask", "React", "UM GPT"], 
+        "img": "./pics/gisthub.jpg",
+        "tags": [
+            {
+                "name": "Repo",
+                "link": "https://github.com/justinjpaul/gisthub"
+            },
+            {
+                "name": "Devpost",
+                "link": "https://devpost.com/software/gisthub"
             }
         ]
         
