@@ -1,6 +1,7 @@
 html {
-  margin:0%;
+  margin: 0%;
 }
+
 body {
   height: 100%;
   /* width: 100%; */
@@ -23,10 +24,12 @@ body {
   align-content: center;
 }
 
-button, .header-button {
+button,
+.header-button {
   cursor: pointer;
 }
 
-button:disabled, .disabled-button {
+button:disabled,
+.disabled-button {
   cursor: default !important;
 }

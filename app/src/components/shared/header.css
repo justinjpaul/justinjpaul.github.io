@@ -11,7 +11,7 @@
 
 .header-panel {
     background-color: #659db8;
-    background-image: url("../../../public/pics/background_sunset.png");
+    background-image: url("/pics/background_sunset.png");
     background-size: cover;
     display: flex;
     width: 100%;
@@ -27,7 +27,8 @@
     font-size: 100%;
 }
 
-button, .header-button {
+button,
+.header-button {
     background-color: #464545 !important;
     color: white !important;
 }
@@ -37,9 +38,11 @@ button, .header-button {
     align-items: center;
     justify-content: right;
 }
+
 ul {
     margin-block: 0em;
 }
+
 .button-container {
     padding-left: 1em;
     padding-right: 2em;
@@ -58,11 +61,13 @@ ul {
 button:hover:not([disabled]),
 .fa:hover,
 .fab:hover,
-.header-button:hover, .header-buttonmobile:hover {
+.header-button:hover,
+.header-buttonmobile:hover {
     filter: brightness(120%)
 }
 
-button:disabled, .disabled-button {
+button:disabled,
+.disabled-button {
     background-color: white !important;
     color: #464545 !important;
     cursor: default !important;
@@ -84,16 +89,16 @@ button:disabled, .disabled-button {
     display: inline-block;
     width: 100%;
     justify-content: center;
-    
+
 }
 
 .header-button {
-    display:inline-block;
+    display: inline-block;
     box-sizing: border-box;
-    padding:5px;
+    padding: 5px;
     width: 80%;
-    height:80%;
-    font-size:2vw;
+    height: 80%;
+    font-size: 2vw;
 }
 
 .far,
@@ -128,14 +133,17 @@ button:disabled, .disabled-button {
         height: auto !important;
         margin-bottom: 1em;
     }
-    .mobile{
+
+    .mobile {
         display: flex;
     }
+
     .header-panel {
         height: 10% !important;
         justify-content: space-between;
         padding: 1em;
     }
+
     .dropdown-button {
         display: inline;
     }
@@ -143,6 +151,7 @@ button:disabled, .disabled-button {
     .dropdown-button:hover {
         cursor: pointer;
     }
+
     .dropdown-button {
         display: inline-block;
     }
@@ -172,7 +181,7 @@ button:disabled, .disabled-button {
         font-size: calc(8px + 1.5vw);
     }
 
-    .button-container-mobile{
+    .button-container-mobile {
         display: none;
     }
 
