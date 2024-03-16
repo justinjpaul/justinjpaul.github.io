@@ -22,11 +22,15 @@ export default function Carousel() {
   const isSmallScreen = useMediaQuery("(max-width:900px)");
 
   const handleNext = () => {
-    setActiveStep((prevActiveStep) => (prevActiveStep + 1) % maxSteps);
+    setActiveStep((prevActiveStep) =>
+      prevActiveStep === maxSteps - 1 ? 0 : prevActiveStep + 1
+    );
   };
 
   const handleBack = () => {
-    setActiveStep((prevActiveStep) => (prevActiveStep - 1) % maxSteps);
+    setActiveStep((prevActiveStep) =>
+      prevActiveStep === 0 ? maxSteps - 1 : prevActiveStep - 1
+    );
   };
 
   const handleStepChange = (step) => {
@@ -44,61 +48,59 @@ export default function Carousel() {
       >
         {slides.map((step, index) => (
           <div key={step.label}>
-            {Math.abs(activeStep - index) <= 2 ? (
-              <Box sx={{ position: "relative" }}>
-                <AspectRatio ratio="4/3">
-                  <figure>
-                    <img
-                      src={step.path}
-                      srcSet={step.path}
-                      loading="lazy"
-                      alt={step.alt}
-                    />
-                  </figure>
-                </AspectRatio>
-                <CardCover
-                  className="gradient-cover"
-                  sx={{
-                    // "&:hover, &:focus-within, @media screen and (max-width: 900px)":
-                    //   {
-                    //     opacity: 1,
-                    //   },
-                    "&:hover, &:focus-within": {
-                      opacity: 1,
-                    },
-                    opacity: isSmallScreen ? 1 : 0,
-                    transition: "0.1s ease-in",
-                    background:
-                      "linear-gradient(180deg, transparent 62%, rgba(0,0,0,0.00345888) 63.94%, rgba(0,0,0,0.014204) 65.89%, rgba(0,0,0,0.0326639) 67.83%, rgba(0,0,0,0.0589645) 69.78%, rgba(0,0,0,0.0927099) 71.72%, rgba(0,0,0,0.132754) 73.67%, rgba(0,0,0,0.177076) 75.61%, rgba(0,0,0,0.222924) 77.56%, rgba(0,0,0,0.267246) 79.5%, rgba(0,0,0,0.30729) 81.44%, rgba(0,0,0,0.341035) 83.39%, rgba(0,0,0,0.367336) 85.33%, rgba(0,0,0,0.385796) 87.28%, rgba(0,0,0,0.396541) 89.22%, rgba(0,0,0,0.4) 91.17%)",
-                  }}
-                >
-                  <div>
-                    <Box
+            <Box sx={{ position: "relative" }}>
+              <AspectRatio ratio="4/3">
+                <figure>
+                  <img
+                    src={step.path}
+                    srcSet={step.path}
+                    loading="lazy"
+                    alt={step.alt}
+                  />
+                </figure>
+              </AspectRatio>
+              <CardCover
+                className="gradient-cover"
+                sx={{
+                  // "&:hover, &:focus-within, @media screen and (max-width: 900px)":
+                  //   {
+                  //     opacity: 1,
+                  //   },
+                  "&:hover, &:focus-within": {
+                    opacity: 1,
+                  },
+                  opacity: isSmallScreen ? 1 : 0,
+                  transition: "0.1s ease-in",
+                  background:
+                    "linear-gradient(180deg, transparent 62%, rgba(0,0,0,0.00345888) 63.94%, rgba(0,0,0,0.014204) 65.89%, rgba(0,0,0,0.0326639) 67.83%, rgba(0,0,0,0.0589645) 69.78%, rgba(0,0,0,0.0927099) 71.72%, rgba(0,0,0,0.132754) 73.67%, rgba(0,0,0,0.177076) 75.61%, rgba(0,0,0,0.222924) 77.56%, rgba(0,0,0,0.267246) 79.5%, rgba(0,0,0,0.30729) 81.44%, rgba(0,0,0,0.341035) 83.39%, rgba(0,0,0,0.367336) 85.33%, rgba(0,0,0,0.385796) 87.28%, rgba(0,0,0,0.396541) 89.22%, rgba(0,0,0,0.4) 91.17%)",
+                }}
+              >
+                <div>
+                  <Box
+                    sx={{
+                      p: 2,
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 1.5,
+                      flexGrow: 1,
+                      alignSelf: "flex-end",
+                    }}
+                  >
+                    <Typography
+                      level={isSmallScreen ? "body-sm" : "h4"}
                       sx={{
-                        p: 2,
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 1.5,
-                        flexGrow: 1,
-                        alignSelf: "flex-end",
+                        color: "#fff",
+                        textOverflow: "ellipsis",
+                        //   overflow: "hidden",
+                        display: "block",
                       }}
                     >
-                      <Typography
-                        level={isSmallScreen ? "body-sm" : "h4"}
-                        sx={{
-                          color: "#fff",
-                          textOverflow: "ellipsis",
-                          //   overflow: "hidden",
-                          display: "block",
-                        }}
-                      >
-                        {slides[activeStep].caption}
-                      </Typography>
-                    </Box>
-                  </div>
-                </CardCover>
-              </Box>
-            ) : null}
+                      {slides[activeStep].caption}
+                    </Typography>
+                  </Box>
+                </div>
+              </CardCover>
+            </Box>
           </div>
         ))}
       </AutoPlaySwipeableViews>
