@@ -47,7 +47,7 @@ export default function Carousel() {
         enableMouseEvents
       >
         {slides.map((step, index) => (
-          <div key={step.label}>
+          <div key={`${index}-${step.label}`}>
             <Box sx={{ position: "relative" }}>
               <AspectRatio ratio="4/3">
                 <figure>
