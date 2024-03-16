@@ -1,66 +1,57 @@
-import { useState, useEffect } from "react";
-import GetData from "../../shared/GetData";
+import { useState } from "react";
+import SingleProjectCard from "./SingleProjectCard";
+import ModalCard from "./ModalCard";
 
-function Tag(props, i) {
-  return (
-    <a
-      href={props.link}
-      target="about:blank"
-      className={`project-tag tag-${props.name}`}
-      key={i}
-    >
-      {props.name}
-    </a>
-  );
-}
-
-function SingleProjectCard(props, ind) {
-  const skills = props.skills.join(", ");
-  return (
-    <article className="project" key={`${props.name}-${ind}`}>
-      <img
-        src={props.img}
-        className="project-image"
-        alt={`project-${props.name}`}
-      ></img>
-      <h3 style={{ marginBottom: "2px", marginTop: ".25em" }}>
-        {props.name} <i>{props.date}</i>
-      </h3>
-      <p style={{ marginTop: "0" }}>
-        <i>{props.role}</i>
-      </p>
-      <p>{props.description}</p>
-      <p>
-        <b>Languages and Skills: </b>
-        {skills}
-      </p>
-      <p>
-        <b>Learn more:</b>
-      </p>
-      {props.tags.length > 0 &&
-        props.tags.map((tag, i) => {
-          return Tag(tag, `${ind}-${i}`);
-        })}
-    </article>
-  );
-}
+import Grid from "@mui/joy/Grid";
+import { projects } from "../../../constants/projects";
+import Modal from "@mui/joy/Modal";
+import ModalClose from "@mui/joy/ModalClose";
+import ModalDialog from "@mui/joy/ModalDialog";
+import Typography from "@mui/joy/Typography";
 
 export default function Projects() {
-  const url = "/projects.json";
-  const [data, setData] = useState([]);
+  const [modalChosen, setModalChosen] = useState(undefined);
 
-  useEffect(() => {
-    GetData({ url, setData });
-  }, []);
+  const onClose = () => {
+    setModalChosen(undefined);
+  };
 
   return (
     <>
-      <h1>Projects</h1>
-      <div className="project-container">
-        {data.map((proj, i) => {
-          return SingleProjectCard(proj, i);
+      <Typography level="h1">Projects</Typography>
+      <Grid
+        container
+        spacing={2}
+        sx={{
+          flexGrow: 1,
+          justifyContent: "flex-start",
+        }}
+      >
+        {projects.map((proj, i) => {
+          return (
+            <Grid
+              sx={{ display: "flex" }}
+              key={`projectSingleCard-${i}`}
+              sm={12}
+              md={6}
+              lg={4}
+            >
+              <SingleProjectCard
+                props={proj}
+                setModalFunction={() => {
+                  setModalChosen(i);
+                }}
+              />
+            </Grid>
+          );
         })}
-      </div>
+      </Grid>
+      <Modal open={modalChosen !== undefined} onClose={onClose}>
+        <ModalDialog>
+          <ModalClose />
+          <ModalCard props={projects[modalChosen]} />
+        </ModalDialog>
+      </Modal>
     </>
   );
 }
