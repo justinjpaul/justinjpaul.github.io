@@ -1,8 +1,58 @@
-import FormatDate from "../../shared/FormatDate";
-import { Sheet, Typography } from "@mui/joy";
+import TrendingDownIcon from "@mui/icons-material/TrendingDown";
+import TrendingFlatIcon from "@mui/icons-material/TrendingFlat";
+import TrendingUpIcon from "@mui/icons-material/TrendingUp";
+import { Sheet, Stack, Typography } from "@mui/joy";
 import { headerColor } from "../../../constants/shared";
+import { formatDate } from "../../shared/utils";
+
+const responsiveTitleStyle = {
+  fontSize: "calc(13px+.5vw)",
+  color: "inherit",
+};
+const responsiveBulletStyle = {
+  fontSize: "calc(12px+.5vw)",
+};
 
 export default function ChessPopup({ dataPoint, props, link }) {
+  const RatingChangeComponent = () => {
+    if (
+      dataPoint["pre-rating"] === undefined ||
+      dataPoint["post-rating"] === undefined
+    ) {
+      return <></>;
+    }
+    const ratingChange = dataPoint["post-rating"] - dataPoint["pre-rating"];
+    return (
+      <Stack direction="row" alignItems="center">
+        <Typography level="body-sm" sx={responsiveBulletStyle}>
+          {dataPoint["pre-rating"]}&nbsp;
+        </Typography>
+        <Typography
+          level="body-sm"
+          sx={responsiveBulletStyle}
+          color={
+            ratingChange === 0
+              ? "neutral"
+              : ratingChange < 0
+              ? "danger"
+              : "success"
+          }
+        >
+          {ratingChange === 0 ? (
+            <TrendingFlatIcon />
+          ) : ratingChange < 0 ? (
+            <TrendingDownIcon />
+          ) : (
+            <TrendingUpIcon />
+          )}
+        </Typography>
+        <Typography level="body-sm" sx={responsiveBulletStyle}>
+          {dataPoint["post-rating"]}
+        </Typography>
+      </Stack>
+    );
+  };
+
   return (
     <Sheet
       sx={{
@@ -14,27 +64,29 @@ export default function ChessPopup({ dataPoint, props, link }) {
         ...props,
       }}
     >
-      <Typography variant="plain" level="title-md" sx={{ color: "inherit" }}>
+      <Typography variant="plain" sx={responsiveTitleStyle}>
         {link ? (
           <a href={dataPoint.link} target="_blank" rel="noreferrer">
-            <b>{`${dataPoint.event}`}</b>
+            <b>{dataPoint.event}</b>
           </a>
         ) : (
-          <b>{`${dataPoint.event}`}</b>
+          <b>{dataPoint.event}</b>
         )}
       </Typography>
-      <Typography level="body-sm">
-        <i>{FormatDate(dataPoint.date)}</i>
+      <Typography level="body-sm" sx={responsiveBulletStyle}>
+        <i>{formatDate(dataPoint.date)}</i>
       </Typography>
-      {dataPoint["pre-rating"] !== undefined &&
-        dataPoint["post-rating"] !== undefined && (
-          <Typography level="body-sm">
-            {`${dataPoint["pre-rating"]} => ${dataPoint["post-rating"]}`}
-          </Typography>
-        )}
-      <Typography level="body-sm">
-        Placed {ordinal_suffix_of(dataPoint.final_rank)} out of{" "}
-        {dataPoint.participants} players
+      <RatingChangeComponent />
+      <Typography level="body-sm" sx={responsiveBulletStyle}>
+        Placed
+        <Typography>
+          &nbsp;<b>{ordinal_suffix_of(dataPoint.final_rank)}</b>&nbsp;
+        </Typography>
+        out of
+        <Typography>
+          &nbsp;<b>{dataPoint.participants}</b>&nbsp;
+        </Typography>
+        players
       </Typography>
     </Sheet>
   );

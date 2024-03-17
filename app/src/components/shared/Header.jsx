@@ -1,19 +1,19 @@
-import { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/joy/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import MenuItem from "@mui/material/MenuItem";
-import Link from "@mui/joy/Link";
 import ColorSchemeToggle from "./ColorSchemeToggle";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import Container from "@mui/material/Container";
 import EmailIcon from "@mui/icons-material/Email";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import IconButton from "@mui/joy/IconButton";
+import Link from "@mui/joy/Link";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import { useState } from "react";
 
 const pages = ["", "chess", "portfolio", "updates"];
 

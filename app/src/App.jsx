@@ -21,22 +21,20 @@ const materialTheme = materialExtendTheme();
 const theme = extendTheme();
 function App() {
   return (
-    <div id="main-container">
-      <MaterialCssVarsProvider theme={{ [MATERIAL_THEME_ID]: materialTheme }}>
-        <JoyCssVarsProvider theme={theme}>
-          <CssBaseline enableColorScheme />
-          <Router>
-            <Routes>
-              <Route path="/" element={<AboutPage />} />
-              <Route path="chess" element={<ChessPage />} />
-              <Route path="portfolio" element={<PortfolioPage />} />
-              <Route path="updates" element={<UpdatesPage />} />
-              <Route path="/*" element={<NotFoundPage />} />
-            </Routes>
-          </Router>
-        </JoyCssVarsProvider>
-      </MaterialCssVarsProvider>
-    </div>
+    <MaterialCssVarsProvider theme={{ [MATERIAL_THEME_ID]: materialTheme }}>
+      <JoyCssVarsProvider theme={theme}>
+        <CssBaseline enableColorScheme />
+        <Router>
+          <Routes>
+            <Route path="/" element={<AboutPage />} />
+            <Route path="chess" element={<ChessPage />} />
+            <Route path="portfolio" element={<PortfolioPage />} />
+            <Route path="updates" element={<UpdatesPage />} />
+            <Route path="/*" element={<NotFoundPage />} />
+          </Routes>
+        </Router>
+      </JoyCssVarsProvider>
+    </MaterialCssVarsProvider>
   );
 }
 

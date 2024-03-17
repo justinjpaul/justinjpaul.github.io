@@ -1,18 +1,9 @@
 import IconMappings from "./ProjectIcons";
-
-import AspectRatio from "@mui/joy/AspectRatio";
-// import Button from "@mui/joy/Button";
 import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
-// import CardOverflow from "@mui/joy/CardOverflow";
-import Link from "@mui/joy/Link";
-import Launch from "@mui/icons-material/Launch";
 import LinkIcon from "@mui/icons-material/Link";
-// import FaceIcon from "@mui/icons-material/Face";
-// import IconButton from "@mui/joy/IconButton";
 import Typography from "@mui/joy/Typography";
 import Grid from "@mui/joy/Grid";
-import Sheet from "@mui/joy/Sheet";
 import Divider from "@mui/joy/Divider";
 import Chip from "@mui/joy/Chip";
 
@@ -27,11 +18,9 @@ export default function SingleProjectCard({ props, setModalFunction }) {
       variant="plain"
       orientation="vertical"
       sx={{
-        backgroundColor: "transparent",
-        bordorColor: "black",
         "&:hover": {
-          boxShadow: "md",
-          borderColor: "neutral.outlinedHoverBorder",
+          boxShadow: "lg",
+          borderColor: "hard.outlinedHoverBorder",
           cursor: "pointer",
         },
         justifyContent: "space-between",

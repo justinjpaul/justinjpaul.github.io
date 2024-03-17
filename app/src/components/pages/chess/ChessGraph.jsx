@@ -1,4 +1,8 @@
-import React, { useState, useEffect } from "react";
+import ChessPopup from "./ChessPopup";
+import React, { useEffect, useState } from "react";
+import { useWindowSize } from "@uidotdev/usehooks";
+import { getData } from "../../shared/utils";
+
 import {
   LineChart,
   Line,
@@ -7,10 +11,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import GetData from "../../shared/GetData";
-import { useWindowSize } from "@uidotdev/usehooks";
 
-import ChessPopup from "./ChessPopup";
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
@@ -40,7 +41,7 @@ const ChessGraph = () => {
   }
 
   useEffect(() => {
-    GetData({ url, setData });
+    getData({ url, setData });
   }, []);
 
   useEffect(() => {

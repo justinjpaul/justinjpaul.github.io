@@ -1,15 +1,11 @@
 import "mapbox-gl/dist/mapbox-gl.css";
 import ChessPopup from "./ChessPopup";
-import GetData from "../../shared/GetData";
 import React, { useEffect, useMemo, useState } from "react";
 import ReactMapGL, { FullscreenControl, Marker, Popup } from "react-map-gl";
 import { useColorScheme } from "@mui/joy";
+import { colorSelector, getData } from "../../shared/utils";
 
 import {
-  mapColorBronze,
-  mapColorDefault,
-  mapColorGold,
-  mapColorSilver,
   mapStyle,
   mapContainerStyle,
   mapLayers,
@@ -23,25 +19,12 @@ const ChessMap = () => {
   const { mode } = useColorScheme();
 
   useEffect(() => {
-    GetData({ url, setData });
+    getData({ url, setData });
   }, []);
 
   const handleMarkerClick = (tourney) => {
     setPopupInfo(tourney);
   };
-
-  function colorSelector(placement) {
-    if (placement === 1) {
-      return mapColorGold;
-    }
-    if (placement === 2) {
-      return mapColorSilver;
-    }
-    if (placement === 3) {
-      return mapColorBronze;
-    }
-    return mapColorDefault;
-  }
 
   const pins = useMemo(
     () =>

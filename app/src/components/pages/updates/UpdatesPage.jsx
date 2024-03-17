@@ -1,4 +1,3 @@
-import "./updates.css";
 import Header from "../../shared/Header";
 import UpdateEntry from "./UpdateEntry";
 import { List, ListDivider, Stack, Typography } from "@mui/joy";
@@ -18,7 +17,7 @@ export default function UpdatesPage() {
   return (
     <>
       <Header page={page} />
-      <div div className="main-body">
+      <div className="main-body">
         <Stack direction="column">
           {Object.keys(yearIndicesObject)
             .map((x) => Number(x))

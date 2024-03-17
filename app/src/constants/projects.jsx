@@ -95,4 +95,4 @@ export const projects = [
       },
     ],
   },
-];
+].toSorted((a, b) => b.ranking - a.ranking);

@@ -16,8 +16,6 @@ import {
   Stack,
   Typography,
   Snackbar,
-  Sheet,
-  Box,
 } from "@mui/joy";
 
 function formatElem(li) {
@@ -70,9 +68,6 @@ export default function ChessPage() {
   };
 
   const handleAlertClose = (event, reason) => {
-    if (reason === "timeout") {
-      return;
-    }
     if (
       reason === "clickaway" &&
       (event.target.id === "map-toggle-button" ||
@@ -131,6 +126,7 @@ export default function ChessPage() {
         <Snackbar
           anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
           open={alertOpen}
+          autoHideDuration={5 * 1000}
           onClose={handleAlertClose}
           endDecorator={
             <Button
