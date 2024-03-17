@@ -1,34 +1,36 @@
-import { useState } from "react";
-import Header from "../../shared/Header";
-import ChessMap from "./ChessMap";
-import ChessGraph from "./ChessGraph";
-
 import "./chess.css";
+import ChessGraph from "./ChessGraph";
+import ChessMap from "./ChessMap";
+import Header from "../../shared/Header";
+import { useMediaQuery } from "@mui/material";
+import { useState } from "react";
+import { data, updated } from "../../../constants/chess";
 
-function format_elem(li) {
+import {
+  Button,
+  ButtonGroup,
+  Grid,
+  List,
+  ListItem,
+  ListItemContent,
+  Stack,
+  Typography,
+  Snackbar,
+  Sheet,
+  Box,
+} from "@mui/joy";
+
+function formatElem(li) {
   return (
-    <>
-      <ul
-        style={{
-          listStyleType: "none",
-          margin: "none",
-          justifyContent: "center",
-          padding: ".5em",
-        }}
-      >
-        {li.map(function (elem, i) {
-          return (
-            <li
-              margin-inline-block="10em"
-              overflow-wrap="true"
-              key={`${elem}:${i}`}
-            >
-              {elem}
-            </li>
-          );
-        })}
-      </ul>
-    </>
+    <ListItem variant="soft">
+      <ListItemContent sx={{ padding: "none", textAlign: "left" }}>
+        {li.map((elem, i) => (
+          <Typography key={`chess-nested-list${i}`} level="body-md">
+            {elem}
+          </Typography>
+        ))}
+      </ListItemContent>
+    </ListItem>
   );
 }
 
@@ -39,137 +41,110 @@ function MakeStats({ data }) {
 
   return data.map(function (elem, i) {
     return (
-      <div className="chess-stats" key={`${elem}:${i}`}>
-        {format_elem(elem)}
-      </div>
+      <List
+        sx={{
+          alignitems: "left",
+        }}
+        key={`chess-list${i}`}
+      >
+        {formatElem(elem)}
+      </List>
     );
   });
 }
 
-const data = [
-  ["US Chess rating: 2393", "State Ranking (VA) 3rd"],
-  ["US Chess National Master", "World Chess Federation FIDE Master "],
-  ["National Blitz Ranking (U21): 14th"],
-  ["Multiple National and State Championships"],
-  [
-    "US Chess All American Team",
-    <>
-      <img
-        src="/pics/usa-flag-xs.png"
-        alt="USA Flag"
-        height="13px"
-        width="auto"
-      ></img>
-      &nbsp;(
-      <a
-        target="_blank"
-        rel="noreferrer"
-        href="https://www.uschess.org/index.php/Press/2014-All-America-Chess-Team-Announced.html"
-      >
-        2014{" "}
-      </a>
-      and
-      <a
-        target="_blank"
-        rel="noreferrer"
-        href="https://new.uschess.org/news/2017-all-american-team-announced"
-      >
-        {" "}
-        2017
-      </a>
-      )&nbsp;
-      <img
-        src="/pics/usa-flag-xs.png"
-        alt="USA Flag"
-        height="13px"
-        width="auto"
-      ></img>
-    </>,
-  ],
-  [
-    "I have played all over!",
-    <>
-      <img
-        src="/pics/uae-flag-xs.png"
-        alt="UAE Flag"
-        height="13px"
-        width="auto"
-      ></img>
-      &nbsp; &nbsp;
-      <img
-        src="/pics/south-africa-flag-xs.png"
-        alt="South Africa Flag"
-        height="13px"
-        width="auto"
-      ></img>
-      &nbsp; &nbsp;
-      <img
-        src="/pics/greece-flag-xs.png"
-        alt="Greece Flag"
-        height="13px"
-        width="auto"
-      ></img>
-    </>,
-  ],
-];
-
 export default function ChessPage() {
   const page = "chess";
   const [toggleMap, setToggleMap] = useState(false);
+  const [alertOpen, setAlertOpen] = useState(true);
+  const mapText = "Look where I have played!";
+  const graphText = "Look at my rating progression!";
+
+  const isSmallScreen = useMediaQuery("(max-width:1100px)");
+  const mapAlertText = "Click markers on map for more info";
+  const graphAlertText = "Click/hover over graph for more info";
+
+  const handleToggleClick = () => {
+    setToggleMap((x) => !x);
+    setAlertOpen(true);
+  };
+
+  const handleAlertClose = (event, reason) => {
+    if (reason === "timeout") {
+      return;
+    }
+    if (
+      reason === "clickaway" &&
+      (event.target.id === "map-toggle-button" ||
+        event.target.id === "graph-toggle-button")
+    ) {
+      return;
+    }
+    setAlertOpen(false);
+  };
 
   return (
     <>
       <Header page={page} />
-      <div className="chess-container main-body">
-        <div className="left-component">
-          {data.length > 0 && <MakeStats data={data} />}
-          <p>*Updated 11/24/2023</p>
-        </div>
-        <div className="right-component">
-          <div className="toggle-container">
-            <div className="toggle-button-container">
-              {!toggleMap && (
-                <div>
-                  <span className="toggle-text">
-                    Look at my rating progression!
-                  </span>
-                  <p
-                    style={{
-                      color: "#659db8",
-                      alignSelf: "center",
-                      display: "flex",
-                      marginBottom: "0em",
-                      marginTop: ".2em",
-                    }}
+      <div className="main-body">
+        <Grid container spacing={2}>
+          {/* map + graph */}
+          <Grid xs={12} sm={12} md={8} lg={9}>
+            <Stack direction="column">
+              <Stack
+                direction="row"
+                display="flex"
+                justifyContent="space-between"
+                alignItems="stretch"
+              >
+                <Typography level={isSmallScreen ? "h4" : "h2"}>
+                  {toggleMap ? mapText : graphText}
+                </Typography>
+                <ButtonGroup sx={{ alignItems: "flex-end" }}>
+                  <Button
+                    disabled={!toggleMap}
+                    onClick={handleToggleClick}
+                    id="graph-toggle-button"
                   >
-                    Click/hover over the graph for more info
-                  </p>
-                </div>
-              )}
-              {toggleMap && (
-                <span className="toggle-text">Look where I have played!</span>
-              )}
-              <button
-                className="toggle-button"
-                disabled={!toggleMap}
-                onClick={() => setToggleMap(false)}
-              >
-                Graph
-              </button>
-              <button
-                className="toggle-button"
-                disabled={toggleMap}
-                onClick={() => setToggleMap(true)}
-              >
-                Map
-              </button>
-            </div>
-          </div>
-          <div className="toggle-show">
-            {toggleMap && <ChessMap />}
-            {!toggleMap && <ChessGraph />}
-          </div>
-        </div>
+                    Graph
+                  </Button>
+                  <Button
+                    disabled={toggleMap}
+                    onClick={handleToggleClick}
+                    id="map-toggle-button"
+                  >
+                    Map
+                  </Button>
+                </ButtonGroup>
+              </Stack>
+              {toggleMap ? <ChessMap /> : <ChessGraph />}
+            </Stack>
+          </Grid>
+          {/* chess stats */}
+          <Grid xs={12} sm={12} md={4} lg={3}>
+            {data.length > 0 && <MakeStats data={data} />}
+            <br />
+            <Typography level="body-xs">*Updated {updated}</Typography>
+          </Grid>
+        </Grid>
+        {/* snackbar alerts */}
+        <Snackbar
+          anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+          open={alertOpen}
+          onClose={handleAlertClose}
+          endDecorator={
+            <Button
+              onClick={() => setAlertOpen(false)}
+              size="sm"
+              variant="soft"
+              color="neutral"
+            >
+              Dismiss
+            </Button>
+          }
+        >
+          {toggleMap ? mapAlertText : graphAlertText}
+        </Snackbar>
       </div>
     </>
   );

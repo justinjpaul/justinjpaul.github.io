@@ -1,38 +1,46 @@
-import 'mapbox-gl/dist/mapbox-gl.css'
-import React, { useEffect, useState, useMemo } from 'react';
-import ReactMapGL, { Marker, Popup, FullscreenControl } from 'react-map-gl';
-import GetData from '../../shared/GetData';
-import FormatDate from '../../shared/FormatDate';
+import "mapbox-gl/dist/mapbox-gl.css";
+import ChessPopup from "./ChessPopup";
+import GetData from "../../shared/GetData";
+import React, { useEffect, useMemo, useState } from "react";
+import ReactMapGL, { FullscreenControl, Marker, Popup } from "react-map-gl";
+import { useColorScheme } from "@mui/joy";
+
+import {
+  mapColorBronze,
+  mapColorDefault,
+  mapColorGold,
+  mapColorSilver,
+  mapStyle,
+  mapContainerStyle,
+  mapLayers,
+  mapLayerPrefix,
+  chessTourneysURL as url,
+} from "../../../constants/chess";
 
 const ChessMap = () => {
-
-  const mapStyle = {
-    position: 'relative',
-  };
-
-  const mapContainerStyle = {
-    position: 'relative',
-    width: '100%',
-    height: 'auto',
-  };
-
   const [popupInfo, setPopupInfo] = useState(null);
   const [data, setData] = useState([]);
+  const { mode } = useColorScheme();
 
-  const url = '/tourneys_fuzzed.json'
   useEffect(() => {
     GetData({ url, setData });
   }, []);
 
   const handleMarkerClick = (tourney) => {
     setPopupInfo(tourney);
-  }
+  };
 
-  function colorSelector(placement){
-    if (placement===1) {return "#FFD700"}
-    if (placement===2) {return "#C0C0C0"}
-    if (placement===3) {return "#CD7F32"}
-    return "#3FB1CE"
+  function colorSelector(placement) {
+    if (placement === 1) {
+      return mapColorGold;
+    }
+    if (placement === 2) {
+      return mapColorSilver;
+    }
+    if (placement === 3) {
+      return mapColorBronze;
+    }
+    return mapColorDefault;
   }
 
   const pins = useMemo(
@@ -44,8 +52,8 @@ const ChessMap = () => {
           color={colorSelector(tourney.final_rank)}
           longitude={tourney.long}
           anchor="bottom"
-          scale={.5}
-          onClick={e => {
+          scale={0.5}
+          onClick={(e) => {
             e.originalEvent.stopPropagation();
             handleMarkerClick(tourney);
           }}
@@ -54,34 +62,17 @@ const ChessMap = () => {
     [data]
   );
 
-
-
-  function ordinal_suffix_of(i) {
-    var j = i % 10,
-      k = i % 100;
-    if (j === 1 && k !== 11) {
-      return i + "st";
-    }
-    if (j === 2 && k !== 12) {
-      return i + "nd";
-    }
-    if (j === 3 && k !== 13) {
-      return i + "rd";
-    }
-    return i + "th";
-  }
-
   return (
     <div style={mapContainerStyle}>
       <ReactMapGL
         style={mapStyle}
-        mapStyle="mapbox://styles/mapbox/streets-v11"
+        mapStyle={`${mapLayerPrefix}/${mapLayers[mode]}`}
         initialViewState={{
           longitude: -40,
           latitude: 35,
-          zoom: .5
+          zoom: 0.5,
         }}
-        mapboxAccessToken='pk.eyJ1IjoiamNoZXNzIiwiYSI6ImNsaHQ4NXlwcjB4czYzam1yNmc3cnQyOXEifQ.f9AgQqpfRvrzJXKOe8gEKw'
+        mapboxAccessToken="pk.eyJ1IjoiamNoZXNzIiwiYSI6ImNsaHQ4NXlwcjB4czYzam1yNmc3cnQyOXEifQ.f9AgQqpfRvrzJXKOe8gEKw"
       >
         {pins}
         {popupInfo && (
@@ -91,18 +82,14 @@ const ChessMap = () => {
             onClose={() => setPopupInfo(null)}
             anchor="top"
           >
-            <div className="popup">
-              <b><a href={popupInfo.link} rel='noreferrer' target="_blank">{popupInfo.event}</a></b>
-              <br />
-              {FormatDate(popupInfo.date)}
-              <br />
-              Placed {ordinal_suffix_of(popupInfo.final_rank)} out of {popupInfo.participants} players
-              <br />
-              {popupInfo['pre-rating'] && `${popupInfo['pre-rating']} => ${popupInfo['post-rating']}`}
-            </div>
+            <ChessPopup
+              dataPoint={popupInfo}
+              props={{ boxShadow: "none", padding: "none" }}
+              link
+            />
           </Popup>
         )}
-      <FullscreenControl />
+        <FullscreenControl />
       </ReactMapGL>
     </div>
   );

@@ -1,48 +1,5 @@
-.chess-container {
-    height: 90%;
-    display: grid;
-    grid-template-columns: 30% 70%;
-}
-
-.left-component {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-right: 1em;
-}
-
-
-.right-component {
-    height: 100%;
-}
-
-ul {
-    padding: 0px;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.chess-stats {
-    display: flex;
-    flex-direction: column;
-    background-color: #D9D9D9;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 25px;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-top: none;
-    margin-bottom: 1em;
-    font-size: calc(8px + .8vw);
-}
-
 tspan {
     font-size: calc(12px + .5vw);
-}
-
-img {
-    background-color: transparent;
 }
 
 .mapboxgl-canvas,
@@ -58,111 +15,10 @@ img {
 
 }
 
-.toggle-container {
-    display: flex;
-    justify-content: space-evenly;
-    height: auto;
-}
-
-.toggle-button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    background-size: auto;
-}
-
-.toggle-button {
-    margin: .5em;
-    border-radius: 25px;
-    border: none;
-    width: 4em;
-
-    font-size: 100%;
-    padding: .5em;
-    background-color: #659db8 !important;
-}
-
-.toggle-button:disabled {
-    color: #659db8 !important;
-}
-
-.toggle-text {
-    align-self: center;
-    font-weight: bold;
-    font-size: calc(12px + 1.5vw);
-    margin-right: 1em;
-    color: #659db8;
-}
-
-.toggle-show {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
 .mapboxgl-ctrl-icon {
     background: whitesmoke;
 }
 
-.custom-tooltip {
-    background-color: rgba(255, 255, 255, 0.85);
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    color: #659db8;
-}
-
-.slideshow-button:disabled {
-    background-color: white;
-    filter: opacity(.3);
-}
-
-
-@media screen and (max-width: 800px) {
-    .chess-container {
-        display: flex;
-        flex-direction: column-reverse;
-    }
-
-    .custom-tooltip {
-        display: inline-block;
-        visibility: visible;
-        min-width: 15vh;
-        max-width: 30vh;
-        text-overflow: clip !important;
-        white-space: normal;
-        overflow: hidden;
-    }
-
-    .toggle-show {
-        margin-bottom: 1em;
-    }
-
-    .left-component {
-        margin-right: 0em;
-    }
-}
-
-@media screen and (max-width: 700px) {
-    .toggle-text {
-        margin-right: 0em;
-        margin-bottom: .5em;
-    }
-
-    .toggle-button-container {
-        margin-left: 1em;
-    }
-
-    .recharts-tooltip-wrapper{
-
-    }
-
-    p.on-graph {
-        font-size: 3.25vw;
-        margin-top: .2vw;
-        margin-bottom: .2vw;
-    }
-
+.mapboxgl-popup-close-button {
+    color: black !important;
 }
