@@ -4,13 +4,16 @@ import ListItemContent from "@mui/joy/ListItemContent";
 import ListItemDecorator from "@mui/joy/ListItemDecorator";
 import Typography from "@mui/joy/Typography";
 import { updateIcons } from "../../../constants/updates";
-import { Tooltip } from "@mui/joy";
 
 export default function UpdateEntry({ update }) {
   return (
     <ListItem>
       <ListItemDecorator sx={{ verticalAlign: "top" }}>
-        <Avatar {...updateIcons[update.category]}>
+        <Avatar
+          variant="outlined"
+          src={updateIcons[update.category].src}
+          alt={updateIcons[update.category].alt}
+        >
           {updateIcons[update.category].srcImg}
         </Avatar>
       </ListItemDecorator>

@@ -1,8 +1,9 @@
-import Header from "../../shared/Header";
 import "./updates.css";
-import { updates } from "../../../constants/updates";
+import Header from "../../shared/Header";
 import UpdateEntry from "./UpdateEntry";
 import { List, ListDivider, Stack, Typography } from "@mui/joy";
+import { updates } from "../../../constants/updates";
+
 export default function UpdatesPage() {
   const page = "updates";
   const yearIndicesObject = updates.reduce((acc, item, index) => {
@@ -13,8 +14,6 @@ export default function UpdatesPage() {
     acc[year].push(index); // Push the index into the array for that year
     return acc;
   }, {});
-  console.log(yearIndicesObject);
-  console.log(Object.keys(yearIndicesObject).map((x) => Number(x)));
 
   return (
     <>
@@ -27,9 +26,7 @@ export default function UpdatesPage() {
             .map((yr) => {
               return (
                 <div key={`update year-${yr}`}>
-                  <Typography level="h1" sx={{ paddingLeft: "12px" }}>
-                    {yr}
-                  </Typography>
+                  <Typography level="h1">{yr}</Typography>
                   <List
                     sx={{
                       "--ListItemDecorator-size": "56px",

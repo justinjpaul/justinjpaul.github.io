@@ -1,13 +1,13 @@
-import IconMappings from "./ProjectIcons";
-
 import AspectRatio from "@mui/joy/AspectRatio";
+import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
-import LinkIcon from "@mui/icons-material/Link";
-import Typography from "@mui/joy/Typography";
+import Chip from "@mui/joy/Chip";
 import Divider from "@mui/joy/Divider";
 import Grid from "@mui/joy/Grid";
-import Chip from "@mui/joy/Chip";
-import Card from "@mui/joy/Card";
+import IconMappings from "./ProjectIcons";
+import LinkIcon from "@mui/icons-material/Link";
+import Sheet from "@mui/joy/Sheet";
+import Typography from "@mui/joy/Typography";
 
 export default function ModalCard({ props }) {
   console.log("props", props);
@@ -81,19 +81,24 @@ export default function ModalCard({ props }) {
           md={12}
           lg={8}
         >
-          {/* <Card variant="soft"> */}
-          <AspectRatio
-            objectFit="contain"
-            xs={{ backgroundColor: "transparent" }}
-          >
-            <img
-              src={props.img}
-              srcSet={props.img}
-              loading="lazy"
-              alt={`proj-${props.name}`}
-            />
-          </AspectRatio>
-          {/* </Card> */}
+          <Sheet>
+            <AspectRatio
+              variant="plain"
+              objectFit="contain"
+              sx={{ backgroundColor: "transparent", background: "transparent" }}
+            >
+              <figure>
+                <img
+                  style={{ backgroundColor: "transparent" }}
+                  className="modal-project-img"
+                  src={props.img}
+                  srcSet={props.img}
+                  loading="lazy"
+                  alt={`proj-${props.name}`}
+                />
+              </figure>
+            </AspectRatio>
+          </Sheet>
         </Grid>
       </Grid>
     </Card>
