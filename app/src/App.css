@@ -23,13 +23,3 @@ body {
   margin: auto;
   align-content: center;
 }
-
-button,
-.header-button {
-  cursor: pointer;
-}
-
-button:disabled,
-.disabled-button {
-  cursor: default !important;
-}

@@ -1,11 +1,18 @@
-import Header from '../../shared/Header';
-
+import Typography from "@mui/joy/Typography";
+import Header from "../../shared/Header";
 
 export default function NotFoundPage() {
-    const page = 'notfound';
+  const page = "notfound";
 
-    return <>
-        <Header page={page}/>
-        <h2 height="90%" className='main-body'>Page not found. Check out my pages by clicking on the buttons on the nav bar at the top :)</h2>
+  return (
+    <>
+      <Header page={page} />
+      <div className="main-body">
+        <Typography level="h2">
+          Page not found. Check out my pages by clicking on the buttons on the
+          nav bar at the top :)
+        </Typography>
+      </div>
     </>
-};
+  );
+}
