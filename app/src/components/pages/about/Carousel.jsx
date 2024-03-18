@@ -1,11 +1,7 @@
 import * as React from "react";
 import { useTheme } from "@mui/joy/styles";
 import Box from "@mui/joy/Box";
-import MobileStepper from "@mui/material/MobileStepper";
 import Typography from "@mui/joy/Typography";
-import Button from "@mui/joy/Button";
-import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
-import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import SwipeableViews from "react-swipeable-views-react-18-fix";
 import { autoPlay } from "react-swipeable-views-utils-react-18-fix";
 import { slides } from "../../../constants/about";
@@ -19,20 +15,7 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 export default function Carousel() {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = slides.length;
   const isSmallScreen = useMediaQuery("(max-width:900px)");
-
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) =>
-      prevActiveStep === maxSteps - 1 ? 0 : prevActiveStep + 1
-    );
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) =>
-      prevActiveStep === 0 ? maxSteps - 1 : prevActiveStep - 1
-    );
-  };
 
   const handleStepChange = (step) => {
     setActiveStep(step);
@@ -101,38 +84,34 @@ export default function Carousel() {
           </div>
         ))}
       </AutoPlaySwipeableViews>
-      <MobileStepper
-        steps={maxSteps}
-        position="static"
-        activeStep={activeStep}
-        nextButton={
-          <Button
-            size="small"
-            onClick={handleNext}
-            sx={{ backgroundColor: headerColor }}
-          >
-            {theme.direction === "rtl" ? (
-              <KeyboardArrowLeft />
-            ) : (
-              <KeyboardArrowRight />
-            )}
-          </Button>
-        }
-        backButton={
-          <Button
-            size="small"
-            onClick={handleBack}
-            sx={{ backgroundColor: headerColor }}
-          >
-            {theme.direction === "rtl" ? (
-              <KeyboardArrowRight />
-            ) : (
-              <KeyboardArrowLeft />
-            )}
-          </Button>
-        }
-        sx={{ paddingLeft: 0, paddingRight: 0 }}
-      />
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 0.5,
+          mx: "auto",
+          paddingTop: "12px",
+        }}
+      >
+        {[...Array(5)].map((_, index) => (
+          <Box
+            key={index}
+            sx={{
+              borderRadius: "50%",
+              width: "10px",
+              height: "10px",
+              bgcolor: index === activeStep ? headerColor : "background.level3",
+              "&:hover": {
+                cursor: "pointer",
+              },
+            }}
+            onClick={() => {
+              handleStepChange(index);
+            }}
+          />
+        ))}
+      </Box>
     </Box>
   );
 }
