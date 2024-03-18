@@ -5,9 +5,10 @@ export default function Intro() {
     <Box>
       <Typography level="body-md">
         Hi! My name is Justin and I am a senior at the University of Michigan 〽️
-        studying Computer Science. This summer I will be an MLE intern working
-        on the fraud detection team at Remitly in Seattle! Following my
-        internship, I will be returning to Michigan for a Master's degree in CS.
+        studying Computer Science. This summer I will be a Machine Learning
+        Engineering Intern on the fraud detection team at Remitly in Seattle!
+        Following my internship, I will be returning to Michigan for a Master's
+        degree in CS.
       </Typography>
       <br />
 

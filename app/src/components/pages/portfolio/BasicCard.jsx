@@ -8,7 +8,7 @@ import Divider from "@mui/joy/Divider";
 import Chip from "@mui/joy/Chip";
 
 const defaultCardProps = {
-  variant: "soft",
+  variant: "plain",
   orientation: "vertical",
   sx: {
     "&:hover": {
@@ -63,7 +63,7 @@ export default function BasicCard(props) {
           {props.skills &&
             props.skills.map((x, ind) => (
               <Grid key={`skills-${ind}-${x}`}>
-                <Chip variant="plain" startDecorator={IconMappings[x]} disabled>
+                <Chip variant="soft" startDecorator={IconMappings[x]} disabled>
                   {x}
                 </Chip>
               </Grid>

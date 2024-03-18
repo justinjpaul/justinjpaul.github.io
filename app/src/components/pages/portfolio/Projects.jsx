@@ -1,13 +1,9 @@
 import { useState } from "react";
 import SingleProjectCard from "./SingleProjectCard";
 import ModalCard from "./ModalCard";
-
-import Grid from "@mui/joy/Grid";
 import { projects } from "../../../constants/projects";
-import Modal from "@mui/joy/Modal";
-import ModalClose from "@mui/joy/ModalClose";
-import ModalDialog from "@mui/joy/ModalDialog";
-import Typography from "@mui/joy/Typography";
+
+import { Grid, Modal, ModalClose, ModalDialog } from "@mui/joy";
 
 export default function Projects() {
   const [modalChosen, setModalChosen] = useState(undefined);
@@ -18,7 +14,6 @@ export default function Projects() {
 
   return (
     <>
-      <Typography level="h1">Projects</Typography>
       <Grid
         container
         spacing={2}
@@ -30,6 +25,7 @@ export default function Projects() {
         {projects.map((proj, i) => {
           return (
             <Grid
+              id={`project-${proj.unique}`}
               sx={{ display: "flex" }}
               key={`projectSingleCard-${i}`}
               sm={12}
@@ -40,7 +36,6 @@ export default function Projects() {
                 {...{
                   ...proj,
                   onClick: () => {
-                    console.log("hi");
                     setModalChosen(i);
                   },
                 }}
@@ -49,6 +44,7 @@ export default function Projects() {
           );
         })}
       </Grid>
+
       <Modal open={modalChosen !== undefined} onClose={onClose}>
         <ModalDialog>
           <ModalClose />

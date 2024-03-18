@@ -64,3 +64,6 @@ export function colorSelector(placement, defaultColor = mapColorDefault) {
   }
   return defaultColor;
 }
+
+// hash router doesn't support normal fragmentation ex. #idName
+// explored using text or jquery, but makes it very messy

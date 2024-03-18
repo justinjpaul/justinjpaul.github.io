@@ -35,7 +35,7 @@ export const updates = [
     category: "chess",
     description: (
       <>
-        First{" "}
+        First&nbsp;
         <a
           href="https://ratings.fide.com/title_norms.phtml?details=1&id=2086581&title=IM"
           rel="noreferrer"
@@ -115,7 +115,7 @@ export const updates = [
     category: "chess",
     description: (
       <>
-        Second{" "}
+        Second&nbsp;
         <a
           href="https://ratings.fide.com/title_norms.phtml?details=1&id=2086581&title=IM"
           rel="noreferrer"
@@ -133,7 +133,7 @@ export const updates = [
     category: "cs",
     description: (
       <>
-        First day of my CS/DS internship at{" "}
+        First day of my CS/DS internship at&nbsp;
         <a rel="noreferrer" target="blank" href="https://www.dewberry.com/">
           Dewberry!
         </a>
@@ -167,7 +167,8 @@ export const updates = [
     category: "michigan",
     description: (
       <>
-        Started as a machine learning student researcher for MDP (sponsored by{" "}
+        Started as a machine learning student researcher for MDP (sponsored
+        by&nbsp;
         <a rel="noreferrer" target="blank" href="https://www.proquest.com/">
           ProQuest
         </a>
@@ -218,7 +219,7 @@ export const updates = [
     category: "cs",
     description: (
       <>
-        Returned for my second internship at{" "}
+        Returned for my second internship at&nbsp;
         <a rel="noreferrer" target="blank" href="https://www.dewberry.com/">
           Dewberry!
         </a>
@@ -232,7 +233,7 @@ export const updates = [
     category: "cs",
     description: (
       <>
-        Won best cloud implementation at MHacks 16. Devpost{" "}
+        Won best cloud implementation at MHacks 16. Devpost&nbsp;
         <a
           rel="noreferrer"
           target="blank"
@@ -283,11 +284,11 @@ export const updates = [
     category: "cs",
     description: (
       <>
-        First day of my MLE internship at{" "}
+        First day of my Machine Learning Engineering Internship at&nbsp;
         <a href="https://remitly.com" target="_blank" rel="noreferrer">
           Remitly
-        </a>{" "}
-        on the fraud detection team!
+        </a>
+        &nbsp; on the fraud detection team!
       </>
     ),
   },

@@ -18,6 +18,7 @@ export const projects = [
         url: "https://docs.google.com/document/d/1uVD5nvpA0lg9E8tE9khuEQDlwCwHKgrHGqtvzKe2JoA/",
       },
     ],
+    unique: "webscrape",
   },
   {
     name: "SEC Insider Trading",
@@ -34,6 +35,7 @@ export const projects = [
         url: "https://github.com/MichiganDataScienceTeam/insider-trading",
       },
     ],
+    unique: "sec-insider",
   },
   {
     name: "Movie Recommender",
@@ -50,6 +52,7 @@ export const projects = [
         url: "https://github.com/MichiganDataScienceTeam/movie-recommendations",
       },
     ],
+    unique: "movies",
   },
   {
     name: "Vector 2 Raster",
@@ -66,6 +69,7 @@ export const projects = [
         url: "https://github.com/dewberry/v2r",
       },
     ],
+    unique: "v2r",
   },
   {
     name: "GistHub",
@@ -86,5 +90,6 @@ export const projects = [
         url: "https://devpost.com/software/gisthub",
       },
     ],
+    unique: "gisthub",
   },
 ].toSorted((a, b) => b.ranking - a.ranking);
