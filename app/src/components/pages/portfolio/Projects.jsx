@@ -37,9 +37,12 @@ export default function Projects() {
               lg={4}
             >
               <SingleProjectCard
-                props={proj}
-                setModalFunction={() => {
-                  setModalChosen(i);
+                {...{
+                  ...proj,
+                  onClick: () => {
+                    console.log("hi");
+                    setModalChosen(i);
+                  },
                 }}
               />
             </Grid>
@@ -49,7 +52,7 @@ export default function Projects() {
       <Modal open={modalChosen !== undefined} onClose={onClose}>
         <ModalDialog>
           <ModalClose />
-          <ModalCard props={projects[modalChosen]} />
+          <ModalCard {...projects[modalChosen]} />
         </ModalDialog>
       </Modal>
     </>

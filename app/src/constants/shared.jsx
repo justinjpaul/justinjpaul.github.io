@@ -34,7 +34,7 @@ export const commonTheme = {
             textDecoration: "underline",
           },
           "a:active": {
-            color: "red",
+            filter: "brightness(90%)",
           },
         },
       },
