@@ -41,3 +41,10 @@ export const commonTheme = {
     },
   },
 };
+
+export const pages = [
+  { name: "about", path: "" },
+  { name: "chess", path: "chess" },
+  { name: "portfolio", path: "portfolio" },
+  { name: "updates", path: "updates" },
+];

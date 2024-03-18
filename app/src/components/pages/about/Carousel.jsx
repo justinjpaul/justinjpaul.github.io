@@ -12,6 +12,7 @@ import { slides } from "../../../constants/about";
 import CardCover from "@mui/joy/CardCover";
 import AspectRatio from "@mui/joy/AspectRatio";
 import { useMediaQuery } from "@mui/material";
+import { headerColor } from "../../../constants/shared";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -105,7 +106,11 @@ export default function Carousel() {
         position="static"
         activeStep={activeStep}
         nextButton={
-          <Button size="small" onClick={handleNext}>
+          <Button
+            size="small"
+            onClick={handleNext}
+            sx={{ backgroundColor: headerColor }}
+          >
             {theme.direction === "rtl" ? (
               <KeyboardArrowLeft />
             ) : (
@@ -114,7 +119,11 @@ export default function Carousel() {
           </Button>
         }
         backButton={
-          <Button size="small" onClick={handleBack}>
+          <Button
+            size="small"
+            onClick={handleBack}
+            sx={{ backgroundColor: headerColor }}
+          >
             {theme.direction === "rtl" ? (
               <KeyboardArrowRight />
             ) : (

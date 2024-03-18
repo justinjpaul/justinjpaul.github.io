@@ -22,6 +22,7 @@ export default function ColorSchemeToggle() {
         setMaterialMode(mode === "dark" ? "light" : "dark");
         setJoyMode(mode === "dark" ? "light" : "dark");
       }}
+      sx={{ color: "background.popup" }}
     >
       {mode === "dark" ? <DarkModeIcon /> : <LightModeIcon />}
     </IconButton>
