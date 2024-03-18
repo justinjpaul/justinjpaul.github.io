@@ -16,9 +16,20 @@ import ChessPage from "./components/pages/chess/ChessPage";
 import PortfolioPage from "./components/pages/portfolio/PortfolioPage";
 import UpdatesPage from "./components/pages/updates/UpdatesPage";
 import NotFoundPage from "./components/pages/notfound/NotFoundPage";
+import Header from "./components/shared/Header";
 
 const materialTheme = materialExtendTheme(commonTheme);
 const theme = extendTheme(commonTheme);
+
+const FullPage = ({ name, page }) => {
+  return (
+    <>
+      <Header currentPage={name} />
+      <div className="main-body">{page}</div>
+    </>
+  );
+};
+
 function App() {
   return (
     <MaterialCssVarsProvider theme={{ [MATERIAL_THEME_ID]: materialTheme }}>
@@ -26,11 +37,26 @@ function App() {
         <CssBaseline enableColorScheme />
         <Router>
           <Routes>
-            <Route path="/" element={<AboutPage />} />
-            <Route path="chess" element={<ChessPage />} />
-            <Route path="portfolio" element={<PortfolioPage />} />
-            <Route path="updates" element={<UpdatesPage />} />
-            <Route path="/*" element={<NotFoundPage />} />
+            <Route
+              path="/"
+              element={<FullPage name="" page={<AboutPage />} />}
+            />
+            <Route
+              path="chess"
+              element={<FullPage name="chess" page={<ChessPage />} />}
+            />
+            <Route
+              path="portfolio"
+              element={<FullPage name="portfolio" page={<PortfolioPage />} />}
+            />
+            <Route
+              path="updates"
+              element={<FullPage name="updates" page={<UpdatesPage />} />}
+            />
+            <Route
+              path="/*"
+              element={<FullPage name="404" page={<NotFoundPage />} />}
+            />
           </Routes>
         </Router>
       </JoyCssVarsProvider>

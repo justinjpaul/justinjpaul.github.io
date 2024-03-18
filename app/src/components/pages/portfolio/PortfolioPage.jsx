@@ -1,4 +1,3 @@
-import Header from "../../shared/Header";
 import Projects from "./Projects";
 
 // import GitHubCalendar from 'react-github-calendar'
@@ -13,15 +12,10 @@ import Projects from "./Projects";
 // }
 
 export default function PortfolioPage() {
-  const page = "portfolio";
-
   return (
     <>
-      <Header page={page} />
-      <div className="main-body">
-        {/* <GitDisplay /> */}
-        <Projects />
-      </div>
+      {/* <GitDisplay /> */}
+      <Projects />
     </>
   );
 }

@@ -7,19 +7,14 @@ export default function AboutPage() {
   const page = "";
 
   return (
-    <>
-      <Header page={page} />
-      <div className="main-body">
-        <Grid container spacing={4} sx={{ flexGrow: 1 }}>
-          <Grid lg={5} md={5.5} sm={12} xs={12}>
-            <Carousel />
-          </Grid>
+    <Grid container spacing={4} sx={{ flexGrow: 1 }}>
+      <Grid lg={5} md={5.5} sm={12} xs={12}>
+        <Carousel />
+      </Grid>
 
-          <Grid lg={7} md={6.5} sm={12} xs={12}>
-            <Intro />
-          </Grid>
-        </Grid>
-      </div>
-    </>
+      <Grid lg={7} md={6.5} sm={12} xs={12}>
+        <Intro />
+      </Grid>
+    </Grid>
   );
 }

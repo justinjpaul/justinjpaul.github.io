@@ -14,6 +14,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
+import { headerColor } from "../../constants/shared";
 
 const pages = ["", "chess", "portfolio", "updates"];
 
@@ -23,7 +24,7 @@ function toTitleCase(str) {
   });
 }
 
-export default function Header() {
+export default function Header(currentPage) {
   const [anchorElNav, setAnchorElNav] = useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -37,7 +38,7 @@ export default function Header() {
   return (
     <AppBar
       position="static"
-      sx={{ backgroundColor: "#659db8", marginBottom: "2rem" }}
+      sx={{ backgroundColor: headerColor, marginBottom: "2rem" }}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -50,9 +51,10 @@ export default function Header() {
               mr: 2,
               display: { xs: "none", md: "flex" },
               fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
+              letterSpacing: ".2rem",
+              color: "white",
               textDecoration: "none",
+              backgroundColor: "(0,0,0,.5)",
             }}
           >
             &nbsp;About
@@ -122,6 +124,7 @@ export default function Header() {
                 href={`/#/${page}`}
                 key={page}
                 sx={{ my: 2, color: "white", display: "block" }}
+                disabled={page === currentPage}
               >
                 {page}
               </Button>

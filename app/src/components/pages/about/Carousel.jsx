@@ -40,7 +40,7 @@ export default function Carousel() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AutoPlaySwipeableViews
-        interval={1000 * 1000}
+        interval={10 * 1000}
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={activeStep}
         onChangeIndex={handleStepChange}
@@ -122,6 +122,7 @@ export default function Carousel() {
             )}
           </Button>
         }
+        sx={{ paddingLeft: 0, paddingRight: 0 }}
       />
     </Box>
   );

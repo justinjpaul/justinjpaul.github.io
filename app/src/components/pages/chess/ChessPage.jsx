@@ -1,7 +1,6 @@
 import "./chess.css";
 import ChessGraph from "./ChessGraph";
 import ChessMap from "./ChessMap";
-import Header from "../../shared/Header";
 import { useMediaQuery } from "@mui/material";
 import { useState } from "react";
 import { data, updated } from "../../../constants/chess";
@@ -52,7 +51,6 @@ function MakeStats({ data }) {
 }
 
 export default function ChessPage() {
-  const page = "chess";
   const [toggleMap, setToggleMap] = useState(false);
   const [alertOpen, setAlertOpen] = useState(true);
   const mapText = "Look where I have played!";
@@ -80,68 +78,65 @@ export default function ChessPage() {
 
   return (
     <>
-      <Header page={page} />
-      <div className="main-body">
-        <Grid container spacing={2}>
-          {/* map + graph */}
-          <Grid xs={12} sm={12} md={8} lg={9}>
-            <Stack direction="column">
-              <Stack
-                direction="row"
-                display="flex"
-                justifyContent="space-between"
-                alignItems="stretch"
-              >
-                <Typography level={isSmallScreen ? "h4" : "h2"}>
-                  {toggleMap ? mapText : graphText}
-                </Typography>
-                <ButtonGroup sx={{ alignItems: "flex-end" }}>
-                  <Button
-                    disabled={!toggleMap}
-                    onClick={handleToggleClick}
-                    id="graph-toggle-button"
-                  >
-                    Graph
-                  </Button>
-                  <Button
-                    disabled={toggleMap}
-                    onClick={handleToggleClick}
-                    id="map-toggle-button"
-                  >
-                    Map
-                  </Button>
-                </ButtonGroup>
-              </Stack>
-              {toggleMap ? <ChessMap /> : <ChessGraph />}
-            </Stack>
-          </Grid>
-          {/* chess stats */}
-          <Grid xs={12} sm={12} md={4} lg={3}>
-            {data.length > 0 && <MakeStats data={data} />}
-            <br />
-            <Typography level="body-xs">*Updated {updated}</Typography>
-          </Grid>
-        </Grid>
-        {/* snackbar alerts */}
-        <Snackbar
-          anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-          open={alertOpen}
-          autoHideDuration={5 * 1000}
-          onClose={handleAlertClose}
-          endDecorator={
-            <Button
-              onClick={() => setAlertOpen(false)}
-              size="sm"
-              variant="soft"
-              color="neutral"
+      <Grid container spacing={2}>
+        {/* map + graph */}
+        <Grid xs={12} sm={12} md={8} lg={8}>
+          <Stack direction="column">
+            <Stack
+              direction="row"
+              display="flex"
+              justifyContent="space-between"
+              alignItems="stretch"
             >
-              Dismiss
-            </Button>
-          }
-        >
-          {toggleMap ? mapAlertText : graphAlertText}
-        </Snackbar>
-      </div>
+              <Typography level={isSmallScreen ? "h4" : "h2"}>
+                {toggleMap ? mapText : graphText}
+              </Typography>
+              <ButtonGroup sx={{ alignItems: "flex-end" }}>
+                <Button
+                  disabled={!toggleMap}
+                  onClick={handleToggleClick}
+                  id="graph-toggle-button"
+                >
+                  Graph
+                </Button>
+                <Button
+                  disabled={toggleMap}
+                  onClick={handleToggleClick}
+                  id="map-toggle-button"
+                >
+                  Map
+                </Button>
+              </ButtonGroup>
+            </Stack>
+            {toggleMap ? <ChessMap /> : <ChessGraph />}
+          </Stack>
+        </Grid>
+        {/* chess stats */}
+        <Grid xs={12} sm={12} md={4} lg={4}>
+          {data.length > 0 && <MakeStats data={data} />}
+          <br />
+          <Typography level="body-xs">*Updated {updated}</Typography>
+        </Grid>
+      </Grid>
+      {/* snackbar alerts */}
+      <Snackbar
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+        open={alertOpen}
+        autoHideDuration={5 * 1000}
+        onClose={handleAlertClose}
+        endDecorator={
+          <Button
+            onClick={() => setAlertOpen(false)}
+            size="sm"
+            variant="soft"
+            color="neutral"
+          >
+            Dismiss
+          </Button>
+        }
+      >
+        {toggleMap ? mapAlertText : graphAlertText}
+      </Snackbar>
     </>
   );
 }
