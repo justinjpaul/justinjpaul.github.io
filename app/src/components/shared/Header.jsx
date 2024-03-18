@@ -134,6 +134,7 @@ export default function Header() {
               href="mailto:justpaul@umich.edu"
               target="_blank"
               rel="noreferrer"
+              // color="default"
             >
               <EmailIcon />
             </IconButton>

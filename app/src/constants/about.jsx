@@ -5,6 +5,7 @@ export const slides = [
       <>
         Standing in front of a filled{" "}
         <a
+          className="always-dark"
           rel="noreferrer"
           target="_blank"
           href="https://stanforddaily.com/2023/01/09/so-much-more-alive-stanford-students-rejoice-over-full-lake-lag/"

@@ -62,10 +62,6 @@ export default function Carousel() {
               <CardCover
                 className="gradient-cover"
                 sx={{
-                  // "&:hover, &:focus-within, @media screen and (max-width: 900px)":
-                  //   {
-                  //     opacity: 1,
-                  //   },
                   "&:hover, &:focus-within": {
                     opacity: 1,
                   },

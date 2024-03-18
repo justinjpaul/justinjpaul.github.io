@@ -4,3 +4,19 @@
   margin-right: 2.5%;
   margin-bottom: 1em;
 }
+
+a.always-dark:link {
+  color: #03a9f4 !important;
+}
+
+a.always-dark:visited {
+  color: #d0adf0 !important;
+}
+
+a.always-light:link {
+  color: #03a9f4 !important;
+}
+
+a.always-light:visited {
+  color: #551a8b !important;
+}
