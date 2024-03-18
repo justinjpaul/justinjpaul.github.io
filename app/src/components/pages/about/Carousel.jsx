@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useState } from "react";
 import { useTheme } from "@mui/joy/styles";
 import Box from "@mui/joy/Box";
 import Typography from "@mui/joy/Typography";
@@ -14,7 +14,7 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 export default function Carousel() {
   const theme = useTheme();
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = useState(0);
   const isSmallScreen = useMediaQuery("(max-width:900px)");
 
   const handleStepChange = (step) => {

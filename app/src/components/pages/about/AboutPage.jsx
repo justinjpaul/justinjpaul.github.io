@@ -1,4 +1,3 @@
-import Header from "../../shared/Header";
 import Carousel from "./Carousel";
 import Intro from "./Intro";
 import Grid from "@mui/joy/Grid";

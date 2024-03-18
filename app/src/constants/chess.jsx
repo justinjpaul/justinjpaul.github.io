@@ -85,7 +85,7 @@ export const data = [
   ],
 ];
 
-export const updated = "3/16/2024";
+export const updated = "3/18/2024";
 export const mapColorGold = "#FFD700";
 export const mapColorSilver = "#C0C0C0";
 export const mapColorBronze = "#CD7F32";

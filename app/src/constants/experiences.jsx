@@ -32,10 +32,20 @@ export const experiences = [
     date: "May 2023 - Aug 2023",
     role: "Dewberry",
     bullets: [
-      "Further developed custom vector to raster interpolation routines (V2R) tool created in 2022 as an internal cloud computing service",
-      "Developed a cloud-based management system that accommodates automatic model generation, rounds of QA/QC using a \
-      microservices architecture consisting of a react frontend, Golang RESTful API, postgres database, and two tile servers",
-      "Collaborated with a team of four to increase modeling capabilities from a scale of 10's to 1000's, leading a work stream of two new hires",
+      <>
+        Further developed custom vector to raster interpolation routines (V2R)
+        tool created in 2022 as an internal cloud computing service
+      </>,
+      <>
+        Developed a cloud-based management system that accommodates automatic
+        model generation, rounds of QA/QC using a microservices architecture
+        consisting of a react frontend, Golang RESTful API, postgres database,
+        and two tile servers
+      </>,
+      <>
+        Collaborated with a team of four to increase modeling capabilities from
+        a scale of 10's to 1000's, leading a work stream of two new hires
+      </>,
     ],
     skills: [
       "ReactJS",

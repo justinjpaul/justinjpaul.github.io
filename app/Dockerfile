@@ -1,11 +1,11 @@
 FROM node:18.0.0-alpine
 
 WORKDIR /app
+COPY . /app
 
-ENV PATH /app/node_modules/.bin:$PATH
+RUN npm install
+# RUN npm run build
 
-COPY . ./
+EXPOSE 8080
 
-RUN npm install --silent
-
-CMD ["npm", "start"]
+CMD [ "npm", "run", "dev" ]
