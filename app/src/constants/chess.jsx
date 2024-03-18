@@ -39,15 +39,15 @@ export const data = [
         rel="noreferrer"
         href="https://www.uschess.org/index.php/Press/2014-All-America-Chess-Team-Announced.html"
       >
-        2014&nbsp;
+        2014
       </a>
-      and
+      &nbsp;and&nbsp;
       <a
         target="_blank"
         rel="noreferrer"
         href="https://new.uschess.org/news/2017-all-american-team-announced"
       >
-        &nbsp; 2017
+        2017
       </a>
       )&nbsp;
       <img
