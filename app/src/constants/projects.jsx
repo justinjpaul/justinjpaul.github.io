@@ -14,7 +14,7 @@ export const projects = [
         link: "https://github.com/MichiganDataScienceTeam/W23-Webscraping",
       },
       {
-        name: "MDST",
+        name: "Article",
         link: "https://docs.google.com/document/d/1uVD5nvpA0lg9E8tE9khuEQDlwCwHKgrHGqtvzKe2JoA/",
       },
     ],
@@ -33,10 +33,6 @@ export const projects = [
         name: "Repo",
         link: "https://github.com/MichiganDataScienceTeam/insider-trading",
       },
-      {
-        name: "MDST",
-        link: "https://www.mdst.club/",
-      },
     ],
   },
   {
@@ -52,10 +48,6 @@ export const projects = [
       {
         name: "Repo",
         link: "https://github.com/MichiganDataScienceTeam/movie-recommendations",
-      },
-      {
-        name: "MDST",
-        link: "https://www.mdst.club/",
       },
     ],
   },

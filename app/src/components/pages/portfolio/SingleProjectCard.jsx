@@ -7,11 +7,6 @@ import Grid from "@mui/joy/Grid";
 import Divider from "@mui/joy/Divider";
 import Chip from "@mui/joy/Chip";
 
-// TODO: update projects.json with preferred and backup link... for now github repo is primary link
-// TODO: update hover handling
-// TODO: fix mobile view
-// TODO: fix card look
-
 export default function SingleProjectCard({ props, setModalFunction }) {
   return (
     <Card
