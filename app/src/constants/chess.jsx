@@ -102,7 +102,7 @@ export const mapContainerStyle = {
 };
 
 export const mapLayers = {
-  light: "streets-v11",
+  light: "light-v11",
   dark: "dark-v11",
 };
 export const mapLayerPrefix = "mapbox://styles/mapbox";
