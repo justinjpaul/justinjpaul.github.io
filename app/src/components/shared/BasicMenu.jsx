@@ -35,7 +35,11 @@ export default function BasicMenu({ currentPage }) {
         sx={{ padding: "none" }}
       >
         {pages.map((page) => (
-          <Link href={`/#/${page.path}`} display="flex">
+          <Link
+            href={`/#/${page.path}`}
+            key={`menu-${page.name}`}
+            display="flex"
+          >
             <MenuItem
               onClick={handleClose}
               sx={{
@@ -56,36 +60,3 @@ export default function BasicMenu({ currentPage }) {
     </div>
   );
 }
-
-// this uses mui material, not joy. Joy does not have dropdown support with clickaway functionality yet.
-/* <Dropdown open={isOpen} onOpenChange={handleMenuOpenChange}>
-<MenuButton
-sx={{
-  color: "background.popup",
-  paddingX: "4px",
-}}
-variant="plain"
->
-<MenuIcon />
-</MenuButton>
-
-<Menu>
-{pages.map((page) => (
-  <MenuItem
-    component="a"
-    href={`/#/${page.path}`}
-    sx={{
-      textDecoration:
-        currentPage === page.path
-          ? "underline !important"
-          : "none !important",
-      color: headerColor,
-    }}
-    variant="plain"
-    key={`nav-button-${page.name}`}
-  >
-    {page.name}
-  </MenuItem>
-))}
-</Menu>
-</Dropdown> */
