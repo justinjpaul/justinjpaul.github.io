@@ -16,7 +16,7 @@ export const slides = [
     ),
   },
   {
-    path: "comet.gif",
+    path: "/comet.gif",
     caption: "Drivin' my 1967 Mercury Comet I helped my uncle restore!",
   },
   {

@@ -1,19 +1,15 @@
 import { useState } from "react";
-import { useTheme } from "@mui/joy/styles";
 import Box from "@mui/joy/Box";
 import Typography from "@mui/joy/Typography";
-import SwipeableViews from "react-swipeable-views-react-18-fix";
-import { autoPlay } from "react-swipeable-views-utils-react-18-fix";
+
 import { slides } from "../../../constants/about";
 import CardCover from "@mui/joy/CardCover";
 import AspectRatio from "@mui/joy/AspectRatio";
 import { useMediaQuery } from "@mui/material";
 import { headerColor } from "../../../constants/shared";
+import Carousel from "react-material-ui-carousel";
 
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
-
-export default function Carousel() {
-  const theme = useTheme();
+export default function AboutCarousel() {
   const [activeStep, setActiveStep] = useState(0);
   const isSmallScreen = useMediaQuery("(max-width:900px)");
 
@@ -23,12 +19,15 @@ export default function Carousel() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AutoPlaySwipeableViews
-        interval={10 * 1000}
-        axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-        index={activeStep}
-        onChangeIndex={handleStepChange}
-        enableMouseEvents
+      <Carousel
+        onChange={handleStepChange}
+        interval={8 * 1000}
+        activeIndicatorIconButtonProps={{
+          style: {
+            color: headerColor,
+          },
+        }}
+        navButtonsAlwaysInvisible
       >
         {slides.map((step, index) => (
           <div key={`${index}-${step.label}`}>
@@ -83,35 +82,7 @@ export default function Carousel() {
             </Box>
           </div>
         ))}
-      </AutoPlaySwipeableViews>
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 0.5,
-          mx: "auto",
-          paddingTop: "12px",
-        }}
-      >
-        {[...Array(5)].map((_, index) => (
-          <Box
-            key={index}
-            sx={{
-              borderRadius: "50%",
-              width: "10px",
-              height: "10px",
-              bgcolor: index === activeStep ? headerColor : "background.level3",
-              "&:hover": {
-                cursor: "pointer",
-              },
-            }}
-            onClick={() => {
-              handleStepChange(index);
-            }}
-          />
-        ))}
-      </Box>
+      </Carousel>
     </Box>
   );
 }

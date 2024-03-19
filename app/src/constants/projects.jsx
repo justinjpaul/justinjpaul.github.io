@@ -7,7 +7,7 @@ export const projects = [
     description:
       "An application that assists University of Michigan students in finding professors who lead labs in their areas of interest.",
     skills: ["Python", "R", "HTML/CSS", "Webscraping"],
-    img: "./pics/webscraping_app2.png",
+    img: "/pics/webscraping_app2.png",
     links: [
       {
         name: "Repo",
@@ -28,7 +28,7 @@ export const projects = [
     description:
       "A data analysis of SEC filings from Q1 of 2020 to predict instances of insider trading.",
     skills: ["Python", "Pandas", "NumPy"],
-    img: "./pics/insider_trading.png",
+    img: "/pics/insider_trading.png",
     links: [
       {
         name: "Repo",
@@ -45,7 +45,7 @@ export const projects = [
     description:
       "Created a movie recommendation system that uses an interactive quiz to provide customized movie recommendations to users.",
     skills: ["Python", "Machine Learning", "KNN", "Matrix Factorization"],
-    img: "./pics/movies_latent.png",
+    img: "/pics/movies_latent.png",
     links: [
       {
         name: "Repo",
@@ -62,7 +62,7 @@ export const projects = [
     description:
       "Custom raster interpolation routines utilizing concurrent programming that cut down the existing tool from 24 hours to 8 minutes. The tool has command line functionality and is publicly available on GitHub.",
     skills: ["Go", "Data Structures", "Concurrent Programming"],
-    img: "./pics/v2r.png",
+    img: "/pics/v2r.png",
     links: [
       {
         name: "Repo",
@@ -79,7 +79,7 @@ export const projects = [
     description:
       "An AI-powered colaborative note-taking app. We made this at MHacks 16 in just 24 hours, and won the best cloud implementation prize!",
     skills: ["MongoDB", "Google Cloud", "Flask", "React", "UM GPT"],
-    img: "./pics/gisthub.jpg",
+    img: "/pics/gisthub.jpg",
     links: [
       {
         name: "Repo",

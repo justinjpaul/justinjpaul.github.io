@@ -134,7 +134,7 @@ export const updates = [
     description: (
       <>
         First day of my CS/DS internship at&nbsp;
-        <a rel="noreferrer" target="blank" href="https://www.dewberry.com/">
+        <a rel="noreferrer" target="_blank" href="https://www.dewberry.com/">
           Dewberry!
         </a>
       </>
