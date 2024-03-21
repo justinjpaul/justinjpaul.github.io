@@ -32,8 +32,11 @@ const FullPage = ({ name, page }) => {
 
 function App() {
   return (
-    <MaterialCssVarsProvider theme={{ [MATERIAL_THEME_ID]: materialTheme }}>
-      <JoyCssVarsProvider theme={theme}>
+    <MaterialCssVarsProvider
+      defaultMode="system"
+      theme={{ [MATERIAL_THEME_ID]: materialTheme }}
+    >
+      <JoyCssVarsProvider defaultMode="system" theme={theme}>
         <CssBaseline enableColorScheme />
         <Router>
           <Routes>

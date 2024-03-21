@@ -77,7 +77,7 @@ export const projects = [
     date: "(Fall '23)",
     role: "Hacker",
     description:
-      "An AI-powered colaborative note-taking app. We made this at MHacks 16 in just 24 hours, and won the best cloud implementation prize!",
+      "An AI-powered collaborative note-taking app. We made this at MHacks 16 in just 24 hours, and won the best cloud implementation prize!",
     skills: ["MongoDB", "Google Cloud", "Flask", "React", "UM GPT"],
     img: "/pics/gisthub.jpg",
     links: [
