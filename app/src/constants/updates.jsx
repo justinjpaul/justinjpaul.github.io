@@ -279,8 +279,44 @@ export const updates = [
   },
   {
     date_year: 2024,
+    date_month: "Mar",
+    date_day: 24,
+    category: "michigan",
+    description: (
+      <>
+        <a
+          rel="noreferrer"
+          target="_blank"
+          href="https://honors.umich.edu/awards.php#angells"
+        >
+          James B. Angell Scholar
+        </a>
+      </>
+    ),
+  },
+  {
+    date_year: 2024,
+    date_month: "Apr",
+    date_day: 24,
+    category: "michigan",
+    description: (
+      <>
+        Dean's Honor&nbsp;
+        <a
+          rel="noreferrer"
+          target="_blank"
+          href="https://studentawards.engin.umich.edu/wp-content/uploads/sites/17/2024/05/FALL_2023_DHL_Website_Amended_05.02.24.pdf"
+        >
+          List
+        </a>
+        &nbsp;(6)
+      </>
+    ),
+  },
+  {
+    date_year: 2024,
     date_month: "May",
-    date_day: 13,
+    date_day: 14,
     category: "cs",
     description: (
       <>
@@ -288,8 +324,15 @@ export const updates = [
         <a href="https://remitly.com" target="_blank" rel="noreferrer">
           Remitly
         </a>
-        &nbsp; on the fraud detection team!
+        &nbsp;on the fraud detection team!
       </>
     ),
+  },
+  {
+    date_year: 2024,
+    date_month: "Jun",
+    date_day: 1,
+    category: "bike",
+    description: <>Biked 36.3 mile loop around Lake Washington!</>,
   },
 ].reverse();
