@@ -1,8 +1,9 @@
 export const experiences = [
   {
-    name: "VP of Finance, 3x Project Leader",
+    role: "VP of Finance, 3x Project Leader",
     date: "Sep 2021 - April 2023",
-    role: "Michigan Data Science Team, Ann Arbor, MI",
+    name: "Michigan Data Science Team",
+    location: "Ann Arbor, MI",
     bullets: [
       "Raised over $5000 to finance and manage a 200+ club members",
       <>Led Movie Recommender, SEC Insider Trading, and Webscraping projects</>,
@@ -17,9 +18,10 @@ export const experiences = [
     unique: "mdst",
   },
   {
-    name: "Computer/Data Science Intern",
+    role: "Computer/Data Science Intern",
     date: "May 2022 - Aug 2022",
-    role: "Dewberry",
+    name: "Dewberry",
+    location: "Fairfax, VA",
     bullets: [
       "Created V2R utilizing concurrent programming that cut down the runtime of existing tool from 24 hours to 8 minutes",
       "Developed a metadata file explorer system to streamline analysis of cluttered network drives",
@@ -28,9 +30,10 @@ export const experiences = [
     unique: "dewberry22",
   },
   {
-    name: "Software Engineering Development Intern",
+    role: "Software Engineering Development Intern",
     date: "May 2023 - Aug 2023",
-    role: "Dewberry",
+    name: "Dewberry",
+    location: "Fairfax, VA",
     bullets: [
       <>
         Further developed custom vector to raster interpolation routines (V2R)
@@ -56,14 +59,29 @@ export const experiences = [
     unique: "dewberry23",
   },
   {
-    name: "Machine Learning Student Researcher for ProQuest",
+    role: "Machine Learning Student Researcher for ProQuest",
     date: "Jan 2023 - Dec 2023",
-    role: "Multidisciplinary Design Program",
+    name: "Multidisciplinary Design Program",
+    location: "Ann Arbor, MI",
     bullets: [
       "Built an end-to-end system to train/test/validate machine learning models over ~10 TB data from academic publication datasets",
       "Applied proof-of-concept to identify research areas with promising growth potential",
     ],
     skills: ["Python", "Dask", "Big Data"],
     unique: "mdp",
+  },
+  {
+    role: "Machine Learning Engineering Intern",
+    date: "May 2024 - Aug 2024",
+    name: "Remitly",
+    location: "Seattle, WA",
+    bullets: [
+      "Led the design and execution of an experiment to assess model overfitting in transaction risk assessment after a fraud wave, identifying a region with increased customer friction",
+      "Conducted an experiment to evaluate the impact of incorporating recent training data on overall model performance, revealing the importance of precise dataset curation",
+      "Created a scalable model deployment and tracking workflow, facilitating the analysis of 100+ models across 3 research projects",
+      "Assisted in building and maintaining a Spark-like machine learning framework for model training, testing, and deployment",
+    ],
+    skills: ["Python", "Machine Learning"],
+    unique: "remitlyintern",
   },
 ].reverse();

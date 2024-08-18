@@ -1,11 +1,11 @@
-import IconMappings from "./ProjectIcons";
+import LinkIcon from "@mui/icons-material/Link";
 import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
-import LinkIcon from "@mui/icons-material/Link";
-import Typography from "@mui/joy/Typography";
-import Grid from "@mui/joy/Grid";
-import Divider from "@mui/joy/Divider";
 import Chip from "@mui/joy/Chip";
+import Divider from "@mui/joy/Divider";
+import Grid from "@mui/joy/Grid";
+import Typography from "@mui/joy/Typography";
+import IconMappings from "./ProjectIcons";
 
 const defaultCardProps = {
   variant: "plain",
@@ -41,7 +41,12 @@ export default function BasicCard(props) {
             </Typography>
           </Grid>
         </Grid>
-        <Typography level="title-sm">{props.role}</Typography>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <Typography level="title-sm">{props.role}</Typography>
+          {props.location && (
+            <Typography level="title-sm">{props.location}</Typography>
+          )}
+        </div>
 
         <Divider />
         {props.children}

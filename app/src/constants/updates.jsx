@@ -1,6 +1,6 @@
-import PedalBikeIcon from "@mui/icons-material/PedalBike";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChessKnight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import PedalBikeIcon from "@mui/icons-material/PedalBike";
 
 export const updateIcons = {
   chess: {
@@ -334,5 +334,12 @@ export const updates = [
     date_day: 1,
     category: "bike",
     description: <>Biked 36.3 mile loop around Lake Washington!</>,
+  },
+  {
+    date_year: 2024,
+    date_month: "Aug",
+    date_day: 14,
+    category: "chess",
+    description: <>Third (and final) IM Norm</>,
   },
 ].reverse();

@@ -7,7 +7,7 @@ export const data = [
         target="blank"
         rel="noreferrer"
       >
-        2393
+        2420
       </a>
     </>,
     <>
@@ -21,8 +21,7 @@ export const data = [
       </a>
     </>,
   ],
-  ["US Chess National Master", "World Chess Federation FIDE Master "],
-  ["National Blitz Ranking (U21): 17th"],
+  ["US Chess National Master", "International Chess Federation FIDE Master"],
   ["Multiple National and State Championships"],
   [
     "US Chess All American Team",
@@ -85,7 +84,7 @@ export const data = [
   ],
 ];
 
-export const updated = "3/18/2024";
+export const updated = "9/17/2024";
 export const mapColorGold = "#FFD700";
 export const mapColorSilver = "#C0C0C0";
 export const mapColorBronze = "#CD7F32";

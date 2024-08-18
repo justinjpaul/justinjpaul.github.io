@@ -7,9 +7,14 @@ export default function SingleExperienceCard(props) {
   };
 
   const experienceProps = { ...props, cardProps };
-
   return (
-    <BasicCard {...experienceProps}>
+    <BasicCard
+      {...{
+        ...experienceProps,
+        name: experienceProps["role"],
+        role: experienceProps["name"],
+      }}
+    >
       <List marker="circle">
         {props.bullets.map((bullet, ind) => (
           <ListItem key={`experience-bullet-${props.name}-${ind}`}>
