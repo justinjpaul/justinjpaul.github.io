@@ -371,7 +371,7 @@ export const updates = [
     date_month: "Jul",
     date_day: 31,
     category: "cs",
-    description: <>Started as a Machine Learning Engineer I at Remitly!</>,
+    description: <>Returned to Remitly full-time as a Machine Learning Engineer I!</>,
   },
   {
     date_year: 2026,
