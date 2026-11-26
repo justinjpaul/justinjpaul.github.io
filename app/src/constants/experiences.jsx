@@ -86,7 +86,7 @@ export const experiences = [
   },
   {
     role: "Machine Learning Engineer I",
-    date: "Jul 2025 - Dec 2026",
+    date: "Jul 2025 - Nov 2026",
     name: "Remitly",
     location: "Seattle, WA",
     bullets: [
