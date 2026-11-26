@@ -1,20 +1,366 @@
-.mapboxgl-canvas,
-.mapboxgl-map {
+.chess-page {
+    margin-top: 1rem;
+}
+
+[data-joy-color-scheme="dark"] .chess-page {
+    --joy-palette-primary-solidBg: var(--chess-header-color);
+    --joy-palette-primary-outlinedColor: var(--chess-header-color);
+    --joy-palette-primary-plainColor: var(--chess-header-color);
+}
+
+.chess-view-heading,
+.chess-panel-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: .6rem 1rem;
+}
+
+.chess-view-heading {
+    margin-bottom: .85rem;
+}
+
+.chess-panel,
+.chess-profile {
+    border-radius: var(--joy-radius-md);
+    padding: clamp(.75rem, 2vw, 1.2rem);
+}
+
+.chess-panel {
+    display: grid;
+    gap: .75rem;
+    min-width: 0;
+}
+
+.chess-profile {
+    display: grid;
+    gap: .75rem;
+}
+
+.chess-stat-tiles {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .6rem;
+    margin-top: .55rem;
+}
+
+.chess-stat-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .3rem;
+    border: 1px solid var(--joy-palette-neutral-outlinedBorder);
+    border-radius: var(--joy-radius-sm);
+    background: var(--joy-palette-background-level1);
+    color: var(--joy-palette-text-primary);
+    padding: .65rem .75rem;
+    text-decoration: none;
+}
+
+.chess-stat-tile:hover,
+.chess-stat-tile:focus-visible {
+    border-color: var(--joy-palette-primary-outlinedColor);
+}
+
+.chess-stat-tile:focus-visible {
+    outline: 2px solid var(--joy-palette-focusVisible);
+    outline-offset: 2px;
+}
+
+.chess-stat-tile:hover .chess-stat-label {
+    text-decoration: underline;
+    text-underline-offset: .15em;
+}
+
+.chess-stat-label {
+    font-size: .875rem;
+    font-weight: 650;
+}
+
+.chess-stat-tile strong {
+    margin-top: auto;
+    font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+    line-height: 1.05;
+    font-variant-numeric: tabular-nums;
+}
+
+.chess-stat-tile small {
+    color: var(--joy-palette-text-secondary);
+    font-size: .8125rem;
+}
+
+.chess-profile-titles {
+    border-top: 1px solid var(--joy-palette-divider);
+    padding-top: .75rem;
+}
+
+.chess-chart {
+    min-width: 0;
+    height: clamp(14rem, 30vw, 25rem);
+}
+
+.chess-chart-controls {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) 9rem;
+    gap: .5rem .8rem;
+    align-items: center;
+}
+
+.chess-chart-controls input {
     width: 100%;
-    aspect-ratio: 1 / .6;
-    height: auto;
+    accent-color: var(--joy-palette-primary-solidBg);
+    margin: 0;
 }
 
-.map-container {
-    width: 70%;
-    height: 70%;
-
+.chess-chart-controls output {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    font-size: .875rem;
 }
 
-.mapboxgl-ctrl-icon {
-    background: whitesmoke;
+.chess-map {
+    height: clamp(16rem, 36vw, 30rem);
+    overflow: hidden;
+    border-radius: var(--joy-radius-sm);
+    background: var(--joy-palette-background-level1);
 }
 
-.mapboxgl-popup-close-button {
-    color: black !important;
+[data-place="1"] { --chess-pin-color: #cb8c10; }
+[data-place="2"] { --chess-pin-color: #687c8a; }
+[data-place="3"] { --chess-pin-color: #a54e26; }
+[data-place="other"] { --chess-pin-color: #265d77; }
+
+.chess-map-pin {
+    display: grid;
+    place-items: center;
+    width: 1.375rem;
+    height: 1.375rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+}
+
+.chess-map-pin::before,
+.chess-map-legend li span {
+    content: "";
+    display: block;
+    width: .75rem;
+    height: .75rem;
+    border-radius: 50%;
+    background: var(--chess-pin-color);
+    border: 1px solid #fff;
+    box-shadow: 0 0 0 1px #142b3b70;
+}
+
+.chess-map-pin:hover::before,
+.chess-map-pin[aria-pressed="true"]::before {
+    box-shadow: 0 0 0 2px var(--chess-pin-color), 0 0 0 4px #fff9;
+}
+
+.chess-map-pin:focus-visible {
+    outline: 2px solid var(--joy-palette-focusVisible);
+}
+
+.chess-map .maplibregl-marker:has(.chess-map-pin[aria-pressed="true"]),
+.chess-map .maplibregl-marker:focus-within {
+    z-index: 1;
+}
+
+.chess-map-legend,
+.chess-map-legend ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .35rem .85rem;
+}
+
+.chess-map-legend ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: .875rem;
+}
+
+.chess-map-legend li {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+}
+
+#chess-map-location {
+    width: 100%;
+    min-height: 2.4rem;
+    padding: .35rem .55rem;
+    border: 1px solid var(--joy-palette-neutral-outlinedBorder);
+    border-radius: var(--joy-radius-sm);
+    font: inherit;
+    background: var(--joy-palette-background-surface);
+    color: var(--joy-palette-text-primary);
+}
+
+.chess-map-events {
+    list-style: none;
+    padding: 0;
+    margin: .4rem 0 0;
+}
+
+.chess-map-events li {
+    padding: .5rem 0;
+    border-top: 1px solid var(--joy-palette-divider);
+}
+
+.chess-map-regions {
+    flex-wrap: wrap;
+}
+
+.chess-highlights {
+    margin-top: 1.75rem;
+}
+
+.chess-highlights-columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.4rem clamp(1.5rem, 4vw, 3rem);
+    margin-top: 1rem;
+}
+
+.chess-highlight-column {
+    display: grid;
+    align-content: start;
+    gap: 1.4rem;
+}
+
+.chess-highlight-category {
+    margin-bottom: .55rem;
+}
+
+.chess-highlight-list {
+    display: grid;
+    gap: .55rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-inline-start: .375rem;
+}
+
+.chess-highlight-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: .35rem .55rem;
+    border: 1px solid var(--joy-palette-divider);
+    border-radius: var(--joy-radius-md);
+    padding: .65rem .75rem;
+    color: var(--joy-palette-text-primary);
+}
+
+.chess-highlight-content {
+    grid-column: 1 / -1;
+    display: grid;
+    justify-items: start;
+    gap: .3rem;
+}
+
+.chess-highlight-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .2rem .55rem;
+    min-height: 1.5rem;
+}
+
+.chess-highlight-ribbon {
+    position: relative;
+    margin-inline-start: calc(-1.125rem - 1px);
+    border-start-end-radius: var(--joy-radius-sm);
+    border-end-end-radius: var(--joy-radius-sm);
+    background: var(--joy-palette-primary-softBg);
+    color: var(--joy-palette-primary-softColor);
+    font-size: .8rem;
+    font-weight: 650;
+    line-height: 1.35;
+    padding: .25rem .65rem;
+    text-align: center;
+}
+
+.chess-highlight-ribbon::after {
+    content: "";
+    position: absolute;
+    inset-block-start: 100%;
+    inset-inline-start: 0;
+    width: .375rem;
+    height: .375rem;
+    background: inherit;
+    filter: brightness(.82);
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+[data-joy-color-scheme="dark"] .chess-highlight-ribbon {
+    background: var(--chess-header-color);
+    color: var(--joy-palette-common-black);
+}
+
+.chess-highlight-year {
+    justify-self: end;
+    color: var(--joy-palette-text-secondary);
+    font-size: .875rem;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.chess-highlight-name {
+    color: inherit;
+    text-decoration-color: transparent;
+    text-underline-offset: .18em;
+}
+
+.chess-highlight-name:hover,
+.chess-highlight-name:focus-visible {
+    text-decoration-color: currentColor;
+}
+
+.chess-highlight-detail {
+    color: var(--joy-palette-text-secondary);
+    font-size: .8125rem;
+}
+
+.chess-highlight-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .25rem .85rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: .8125rem;
+}
+
+.chess-highlight-links a {
+    color: var(--joy-palette-primary-plainColor);
+    text-underline-offset: .18em;
+}
+
+.chess-highlight-row a:focus-visible {
+    outline: 2px solid var(--joy-palette-focusVisible);
+    outline-offset: 2px;
+}
+
+@media (max-width: 680px) {
+    .chess-highlights-columns {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 470px) {
+    .chess-chart-controls {
+        grid-template-columns: minmax(0, 1fr) 9rem;
+    }
+
+    .chess-chart-controls input {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
 }
