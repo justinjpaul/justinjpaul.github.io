@@ -60,7 +60,7 @@ function TournamentList({ location }) {
             )}
             {event.ratingBefore != null && event.ratingAfter != null && (
               <Typography level="body-sm">
-                US Chess event rating {event.ratingBefore} → {event.ratingAfter}
+                {event.ratingBefore} → {event.ratingAfter}
               </Typography>
             )}
           </li>
