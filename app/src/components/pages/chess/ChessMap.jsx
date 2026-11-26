@@ -1,9 +1,10 @@
-import "maplibre-gl/dist/maplibre-gl.css";
+import "mapbox-gl/dist/mapbox-gl.css";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Button, ButtonGroup, FormControl, FormLabel, Sheet, Typography, useColorScheme } from "@mui/joy";
-import MapView, { AttributionControl, FullscreenControl, Marker, NavigationControl } from "react-map-gl/maplibre";
-import land from "../../../data/chess/land.json";
+import MapView, { FullscreenControl, Marker, NavigationControl } from "react-map-gl";
 import { formatDate, ordinal, tournamentLocations } from "./chessData";
+
+const mapboxAccessToken = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN;
 
 const regions = [
   { id: "world", label: "World", bounds: [[-172, -55], [170, 76]] },
@@ -19,29 +20,6 @@ const placementLegend = [
   { value: 3, label: "3rd" },
   { value: "other", label: "Other" },
 ];
-
-function basemap(dark) {
-  return {
-    version: 8,
-    sources: { land: { type: "geojson", data: land } },
-    layers: [
-      {
-        id: "water",
-        type: "background",
-        paint: { "background-color": dark ? "#152733" : "#e8f1f5" },
-      },
-      {
-        id: "land",
-        type: "fill",
-        source: "land",
-        paint: {
-          "fill-color": dark ? "#384d57" : "#c6d8d7",
-          "fill-outline-color": dark ? "#607681" : "#9fb9bd",
-        },
-      },
-    ],
-  };
-}
 
 function observeArchive(signal) {
   return fetch(import.meta.env.BASE_URL + "tourneys_fuzzed.json", { signal }).then((response) => {
@@ -96,9 +74,9 @@ function TournamentList({ location }) {
 export default function ChessMap() {
   const { mode, systemMode } = useColorScheme();
   const dark = (mode === "system" ? systemMode : mode) === "dark";
-  const style = useMemo(() => basemap(dark), [dark]);
+  const style = dark ? "mapbox://styles/mapbox/dark-v11" : "mapbox://styles/mapbox/light-v11";
   const map = useRef(null);
-  const [mapAvailable, setMapAvailable] = useState(true);
+  const [mapAvailable, setMapAvailable] = useState(Boolean(mapboxAccessToken));
   const [archive, setArchive] = useState([]);
   const [archiveStatus, setArchiveStatus] = useState("loading");
   const [region, setRegion] = useState("world");
@@ -171,18 +149,17 @@ export default function ChessMap() {
             ref={map}
             initialViewState={initialView}
             style={{ width: "100%", height: "100%" }}
+            mapboxAccessToken={mapboxAccessToken}
             mapStyle={style}
             minZoom={-1}
             scrollZoom={false}
             dragRotate={false}
             touchPitch={false}
             renderWorldCopies={false}
-            attributionControl={false}
             onError={() => setMapAvailable(false)}
           >
             <NavigationControl showCompass={false} />
             <FullscreenControl />
-            <AttributionControl customAttribution={'<a href="https://www.naturalearthdata.com/downloads/110m-physical-vectors/110m-land/">Natural Earth</a>'} />
             {locations.map((city) => (
               <Marker key={city.id} longitude={city.longitude} latitude={city.latitude}>
                 <button
@@ -212,7 +189,7 @@ export default function ChessMap() {
       <Typography level="body-sm" className="chess-map-note">
         {mapAvailable
           ? "Each pin represents one city. Choose a pin or use the city list to see its tournaments."
-          : "The map is unavailable in this browser. Browse tournament locations below."}
+          : "The interactive map is unavailable. Browse tournament locations below."}
       </Typography>
       <FormControl>
         <FormLabel htmlFor="chess-map-location">Browse cities</FormLabel>

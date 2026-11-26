@@ -165,8 +165,8 @@
     outline: 2px solid var(--joy-palette-focusVisible);
 }
 
-.chess-map .maplibregl-marker:has(.chess-map-pin[aria-pressed="true"]),
-.chess-map .maplibregl-marker:focus-within {
+.chess-map .mapboxgl-marker:has(.chess-map-pin[aria-pressed="true"]),
+.chess-map .mapboxgl-marker:focus-within {
     z-index: 1;
 }
 
