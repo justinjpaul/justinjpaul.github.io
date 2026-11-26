@@ -394,6 +394,18 @@ export const updates = [
     date_month: "Oct",
     date_day: "13–15",
     category: "conference",
-    description: <>Attended my first conference, TechCrunch Disrupt!</>,
+    description: (
+      <>
+        Attended my first conference,{" "}
+        <a
+          href="https://techcrunch.com/events/techcrunch-disrupt/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          TechCrunch Disrupt
+        </a>
+        !
+      </>
+    ),
   },
 ].reverse();
