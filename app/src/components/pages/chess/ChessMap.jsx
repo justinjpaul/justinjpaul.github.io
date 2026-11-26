@@ -1,18 +1,22 @@
-import "mapbox-gl/dist/mapbox-gl.css";
+import "maplibre-gl/dist/maplibre-gl.css";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Button, ButtonGroup, FormControl, FormLabel, Sheet, Typography, useColorScheme } from "@mui/joy";
-import MapView, { FullscreenControl, Marker, NavigationControl } from "react-map-gl";
+import MapView, { FullscreenControl, Layer, Marker, NavigationControl } from "@vis.gl/react-maplibre";
 import { formatDate, ordinal, tournamentLocations } from "./chessData";
 
-const mapboxAccessToken = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN;
+const mapStyles = {
+  light: "https://tiles.openfreemap.org/styles/positron",
+  dark: "https://tiles.openfreemap.org/styles/dark",
+};
 
+const northAmerica = { id: "north-america", label: "North America", bounds: [[-125, 24], [-66, 50]] };
 const regions = [
   { id: "world", label: "World", bounds: [[-172, -55], [170, 76]] },
-  { id: "north-america", label: "North America", bounds: [[-126, 23], [-64, 53]] },
+  northAmerica,
   { id: "mid-atlantic", label: "Mid-Atlantic", bounds: [[-81.5, 36.2], [-71.5, 43]] },
   { id: "dc-area", label: "DC area", bounds: [[-77.66, 38.77], [-76.88, 39.16]] },
 ];
-const initialView = { bounds: regions[0].bounds, fitBoundsOptions: { padding: 23 } };
+const initialView = { bounds: northAmerica.bounds, fitBoundsOptions: { padding: 23 } };
 
 const placementLegend = [
   { value: 1, label: "1st" },
@@ -74,12 +78,11 @@ function TournamentList({ location }) {
 export default function ChessMap() {
   const { mode, systemMode } = useColorScheme();
   const dark = (mode === "system" ? systemMode : mode) === "dark";
-  const style = dark ? "mapbox://styles/mapbox/dark-v11" : "mapbox://styles/mapbox/light-v11";
   const map = useRef(null);
-  const [mapAvailable, setMapAvailable] = useState(Boolean(mapboxAccessToken));
+  const [mapAvailable, setMapAvailable] = useState(true);
   const [archive, setArchive] = useState([]);
   const [archiveStatus, setArchiveStatus] = useState("loading");
-  const [region, setRegion] = useState("world");
+  const [region, setRegion] = useState(northAmerica.id);
   const [selectedCity, setSelectedCity] = useState("");
   const locations = useMemo(() => tournamentLocations(archive), [archive]);
   const countries = useMemo(() => {
@@ -149,19 +152,29 @@ export default function ChessMap() {
             ref={map}
             initialViewState={initialView}
             style={{ width: "100%", height: "100%" }}
-            mapboxAccessToken={mapboxAccessToken}
-            mapStyle={style}
+            mapStyle={dark ? mapStyles.dark : mapStyles.light}
             minZoom={-1}
             scrollZoom={false}
             dragRotate={false}
             touchPitch={false}
             renderWorldCopies={false}
-            onError={() => setMapAvailable(false)}
+            onError={({ target }) => {
+              if (!target?.getStyle()?.layers.length) setMapAvailable(false);
+            }}
           >
+            <Layer
+              id="chess-state-borders"
+              type="line"
+              source="openmaptiles"
+              source-layer="boundary"
+              maxzoom={8}
+              filter={["all", ["==", ["get", "admin_level"], 4], ["!=", ["get", "maritime"], 1]]}
+              paint={{ "line-color": dark ? "#414141" : "#c9ccce", "line-width": 1 }}
+            />
             <NavigationControl showCompass={false} />
             <FullscreenControl />
             {locations.map((city) => (
-              <Marker key={city.id} longitude={city.longitude} latitude={city.latitude}>
+              <Marker key={city.id} longitude={city.longitude} latitude={city.latitude} anchor="bottom">
                 <button
                   className="chess-map-pin"
                   type="button"
