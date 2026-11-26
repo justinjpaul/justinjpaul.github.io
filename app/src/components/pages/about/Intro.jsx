@@ -1,30 +1,23 @@
 import Box from "@mui/joy/Box";
 import Typography from "@mui/joy/Typography";
+
 export default function Intro() {
   return (
     <Box>
       <Typography level="body-md">
-        Hi! My name is Justin and I am a senior at the University of Michigan 〽️
-        studying Computer Science. This summer I will be a Machine Learning
-        Engineering Intern on the fraud detection team at Remitly in Seattle!
-        Following my internship, I will be returning to Michigan for a Master's
-        degree in CS.
+        Hi! I'm Justin, a machine learning engineer on Remitly's Trust Machine
+        Learning team, where I spend my days fightin' fraudsters. I graduated
+        from Michigan 〽️ with a BSE in Computer Science ('24) and an MSE in
+        Computer Science and Engineering ('25). I love college football, even
+        if Michigan's had a rough run since I graduated 😅
       </Typography>
       <br />
 
       <Typography level="body-md">
-        I'm originally from Northern VA, where I graduated from Thomas Jefferson
-        High School for Science and Technology in 2021. One of my fondest
-        memories is making the varsity tennis team as a senior after barely
-        missing the cut the previous three years.
-      </Typography>
-      <br />
-
-      <Typography level="body-md">
-        I am involved in various clubs and activities, including Rec Tennis,
-        Chess Club, and the Michigan Data Science Team. I love playing games,
-        from board games like chess or Settlers of Catan to video games like
-        Mario Bros.
+        Outside of work, I'm usually hiking up some random mountain, biking
+        without offline maps, or looking for a chance to get on a tennis
+        court. If I'm indoors, there's a good chance I'm grinding through a
+        chess tournament 🤣
       </Typography>
     </Box>
   );

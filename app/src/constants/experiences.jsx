@@ -84,4 +84,25 @@ export const experiences = [
     skills: ["Python", "Machine Learning"],
     unique: "remitlyintern",
   },
+  {
+    role: "Machine Learning Engineer I",
+    date: "Jul 2025 - Dec 2026",
+    name: "Remitly",
+    location: "Seattle, WA",
+    bullets: [
+      "Stepped in as lead on short notice and delivered an embeddings-based fraud detection model as my first project. The model better identified inconsistencies in customer data, reducing annualized fraud losses by an estimated $3M.",
+      "Designed and implemented a caching layer for the feature pipeline that cut model backtest costs to a tenth of their previous level, saving about $3K per backtest.",
+      "Built a quarterly model performance assessment workflow to inform A/B test design for sideline rate tuning and help teams across platforms set rates within their fraud budgets. Early results suggested rates could drop by about 1.5 percentage points without reducing model effectiveness.",
+      "Diagnosed partitioning issues that caused Apache Spark data retrieval jobs to spill to disk. Optimized those jobs on AWS EMR, unblocking a critical model release and improving pipeline reliability.",
+      "Refactored a core data lookup utility from O(N⁴) to O(1), cutting runtime per call from 1 minute to under 1 second.",
+    ],
+    skills: [
+      "Machine Learning",
+      "Claude Code",
+      "Feature Engineering",
+      "Apache Spark",
+      "AWS EMR",
+    ],
+    unique: "remitly-mle-i",
+  },
 ].reverse();

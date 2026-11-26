@@ -1,6 +1,8 @@
 import { faChessKnight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PedalBikeIcon from "@mui/icons-material/PedalBike";
+import RecordVoiceOverIcon from "@mui/icons-material/RecordVoiceOver";
+import TerrainIcon from "@mui/icons-material/Terrain";
 
 export const updateIcons = {
   chess: {
@@ -24,6 +26,14 @@ export const updateIcons = {
   bike: {
     srcImg: <PedalBikeIcon />,
     alt: "🚲",
+  },
+  hike: {
+    srcImg: <TerrainIcon />,
+    alt: "Hiking",
+  },
+  conference: {
+    srcImg: <RecordVoiceOverIcon />,
+    alt: "Conference",
   },
 };
 
@@ -316,6 +326,13 @@ export const updates = [
   {
     date_year: 2024,
     date_month: "May",
+    date_day: 4,
+    category: "michigan",
+    description: <>Graduated from Michigan with a BSE in Computer Science!</>,
+  },
+  {
+    date_year: 2024,
+    date_month: "May",
     date_day: 14,
     category: "cs",
     description: (
@@ -341,5 +358,42 @@ export const updates = [
     date_day: 14,
     category: "chess",
     description: <>Third (and final) IM Norm</>,
+  },
+  {
+    date_year: 2025,
+    date_month: "May",
+    date_day: 3,
+    category: "michigan",
+    description: <>Graduated, part 2! MSE in Computer Science and Engineering.</>,
+  },
+  {
+    date_year: 2025,
+    date_month: "Jul",
+    date_day: 31,
+    category: "cs",
+    description: <>Returned to Remitly full-time as a Machine Learning Engineer I!</>,
+  },
+  {
+    date_year: 2026,
+    date_month: "Aug",
+    date_day: 15,
+    category: "bike",
+    description: <>Rode the Tour de Whidbey (65 mi, 4,777 ft of elevation gain)!</>,
+  },
+  {
+    date_year: 2026,
+    date_month: "Oct",
+    date_day: 3,
+    category: "hike",
+    description: (
+      <>Hiked the Enchantments (24 mi, 54,000 steps, 6,181 ft of elevation gain)!</>
+    ),
+  },
+  {
+    date_year: 2026,
+    date_month: "Oct",
+    date_day: "13–15",
+    category: "conference",
+    description: <>Attended my first conference, TechCrunch Disrupt!</>,
   },
 ].reverse();
