@@ -1,0 +1,67 @@
+[
+  {
+    "id": "chess-results:1420453",
+    "event": "13th Cherry Blossom Classic",
+    "section": "Open",
+    "starts_on": "2026-05-21",
+    "ends_on": "2026-05-25",
+    "checked_on": "2026-11-25",
+    "placement": {
+      "published_rank": 53,
+      "score_rank": 53,
+      "players_on_score": 12,
+      "points": 3.5,
+      "rounds": 9,
+      "participants": 77,
+      "source_url": "https://s3.chess-results.com/tnr1420453.aspx?lan=1&art=1",
+      "player_url": "https://s3.chess-results.com/tnr1420453.aspx?lan=1&art=9&snr=12"
+    },
+    "location": {
+      "locality": "Sterling, Virginia, USA",
+      "venue": "Executive Conference and Training Center",
+      "address": "22685 Holiday Park Dr, Suite 60, Sterling, VA 20166",
+      "venue_source_url": "https://capitalareachess.com/CherryBlossom/",
+      "coordinates": {
+        "latitude": 38.988099,
+        "longitude": -77.428434,
+        "precision": "address",
+        "source_url": "https://www.findlatitudeandlongitude.com/l/22685%2C%2BHoliday%2BPark%2BDrive%2C%2BOak%2BGrove%2C%2BLoudoun%2BCounty%2C%2BVirginia%2C%2B20166%2C%2BUSA/9089292/"
+      },
+      "map_city": "Sterling, VA",
+      "country": "United States"
+    }
+  },
+  {
+    "id": "chess-results:1092628",
+    "event": "International Whitsun Open",
+    "section": "Group A",
+    "starts_on": "2025-06-08",
+    "ends_on": "2025-06-14",
+    "checked_on": "2026-11-25",
+    "placement": {
+      "published_rank": 61,
+      "score_rank": 59,
+      "players_on_score": 22,
+      "points": 4.5,
+      "rounds": 9,
+      "participants": 150,
+      "source_url": "https://s3.chess-results.com/tnr1092628.aspx?lan=1&art=1",
+      "player_url": "https://s3.chess-results.com/tnr1092628.aspx?lan=1&art=9&snr=35"
+    },
+    "location": {
+      "locality": "Munich, Germany",
+      "venue": "Gymnasium Moosach",
+      "address": "Gerastraße 6, 80993 Munich, Germany",
+      "venue_source_url": "https://www.schachbezirk-muenchen.de/pd-kat-ansicht/category/114-sf-m%C3%BCnchen.html?download=975%3Ainternationales-pfingstopen-2025-a-turnier",
+      "coordinates": {
+        "latitude": 48.185,
+        "longitude": 11.519,
+        "precision": "venue",
+        "source_url": "https://www.wikidata.org/wiki/Q1558188"
+      },
+      "address_source_url": "https://stadt.muenchen.de/service/info/gymnasium-munchenmoosach/102575/",
+      "country": "Germany",
+      "map_city": "Munich"
+    }
+  }
+]
